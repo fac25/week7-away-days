@@ -27,35 +27,42 @@ function SearchBar() {
     startDate: "",
     endDate: ""
   })
+  const [errors, setErrors] = useState({
+    location: false,
+    startDate: false,
+    endDate: false
+  })
   const [results, setResults] = useState([])
 
   return (
-    <form>
-      <h2>Search for your next experience</h2>
-      <label for="location">Location</label>
-      <input
-        id="location"
-        type="text"
-        onChange={updateSearch}
-        data-criteria="location"
-        placeholder="Search by location..."
-      />
-      <label for="check-in">Check-in</label>
-      <input
-        id="check-in"
-        type="date"
-        data-criteria="startDate"
-        onChange={updateSearch}
-      />
-      <label for="check-out">Check-Out</label>
-      <input
-        id="check-out"
-        type="date"
-        data-criteria="endDate"
-        onChange={updateSearch}
-      />
-      <button onClick={search}>Search</button>
-
+    <>
+      <form>
+        <h2>Search for your next experience</h2>
+        <label htmlFor="location">Location</label>
+        <input
+          id="location"
+          type="text"
+          onChange={updateSearch}
+          data-criteria="location"
+          placeholder="Search by location..."
+        />
+        <label htmlFor="check-in">Check-in</label>
+        <input
+          id="check-in"
+          type="date"
+          data-criteria="startDate"
+          onChange={updateSearch}
+        />
+        <label htmlFor="check-out">Check-Out</label>
+        <input
+          id="check-out"
+          type="date"
+          data-criteria="endDate"
+          onChange={updateSearch}
+        />
+        <button onClick={search}>Search</button>
+      </form>
+      {console.log(errors)}
       {results.map((resultItem, index) => (
         <div key={`event-${index}`}>
           <p>Name: {resultItem.name}</p>
@@ -65,7 +72,7 @@ function SearchBar() {
           <hr />
         </div>
       ))}
-    </form>
+    </>
   )
 
   function updateSearch({ target }) {
@@ -77,6 +84,7 @@ function SearchBar() {
 
   function search(event) {
     event.preventDefault()
+    if (validateForm()) return console.log("error found")
 
     setResults(
       mockData.filter((item) => {
@@ -90,6 +98,20 @@ function SearchBar() {
         )
       })
     )
+
+    function validateForm() {
+      let errorExists = false
+
+      for (let key in searchCriteria) {
+        const isCriteriaEmpty = !searchCriteria[key].length
+        if (isCriteriaEmpty) errorExists = true
+        setErrors((prevErrors) => {
+          return { ...prevErrors, [key]: isCriteriaEmpty }
+        })
+      }
+
+      return errorExists
+    }
   }
 
   function isDateWithinRange(startOrEnd, item) {
