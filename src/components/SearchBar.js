@@ -32,14 +32,28 @@ function SearchBar() {
   return (
     <form>
       <h2>Search for your next experience</h2>
+      <label for="location">Location</label>
       <input
+        id="location"
         type="text"
         onChange={updateSearch}
         data-criteria="location"
         placeholder="Search by location..."
       />
-      <input type="date" data-criteria="startDate" onChange={updateSearch} />
-      <input type="date" data-criteria="endDate" onChange={updateSearch} />
+      <label for="check-in">Check-in</label>
+      <input
+        id="check-in"
+        type="date"
+        data-criteria="startDate"
+        onChange={updateSearch}
+      />
+      <label for="check-out">Check-Out</label>
+      <input
+        id="check-out"
+        type="date"
+        data-criteria="endDate"
+        onChange={updateSearch}
+      />
       <button onClick={search}>Search</button>
 
       {results.map((resultItem, index) => (
