@@ -8,11 +8,12 @@ import MyProfile from "./pages/MyProfile.js";
 import CreateEvent from "./pages/CreateEvent.js";
 import SearchBar from "./components/SearchBar";
 import { DataStore } from "@aws-amplify/datastore";
-import DisplayReviews from "./components/DisplayReviews.js";
+// import DisplayReviews from "./components/DisplayReviews.js";
 import { Users, Accommodation, Events, Profile, Reviews } from "./models";
 
 // AWS Create User ------------------------------
 async function addUser() {
+  // Create User
   // await DataStore.save(
   //   new Users({
   //     name: "Suraj",
@@ -21,16 +22,26 @@ async function addUser() {
   //     password: "123",
   //   })
   // );
-  const models = await DataStore.query(Reviews);
+  const models = await DataStore.query(Users);
+  const modelsAccommodation = await DataStore.query(Accommodation);
+  const modelsEvents = await DataStore.query(Events);
+  const modelsProfile = await DataStore.query(Profile);
+  const modelsReviews = await DataStore.query(Reviews);
 
-  console.log(models);
+  console.log(
+    models,
+    modelsAccommodation,
+    modelsEvents,
+    modelsProfile,
+    modelsReviews
+  );
 }
 
 // -------------------------------- DELETE STUFF
 // async function deleteStuff() {
 //   const models = await DataStore.query(
-//     Events,
-//     "aad188b0-a3fb-4be3-944f-7f31e3da1bfd"
+//     Users,
+//     ""
 //   );
 //   DataStore.delete(models);
 // }
@@ -40,7 +51,7 @@ async function addUser() {
 function App() {
   return (
     <div className="App">
-      <button onClick={addUser}>Create User</button>
+      <button onClick={addUser}>Create User / Log</button>
       {/* <button onClick={deleteStuff}>Delete</button> */}
 
       <h1>Away Days</h1>
@@ -59,7 +70,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
-      <DisplayReviews />
+      {/* <DisplayReviews /> */}
     </div>
   );
 }
