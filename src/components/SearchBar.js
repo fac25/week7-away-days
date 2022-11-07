@@ -37,16 +37,16 @@ function SearchBar() {
         data-criteria="location"
         placeholder="Search by location..."
       />
-      <input
-        type="date"
-        onChange={({ target }) => console.log(new Date(target.value))}
-      />
+      <input type="date" data-criteria="startDate" />
       <button onClick={search}>Search</button>
     </form>
   )
 
   function updateSearch({ target }) {
-    console.log(target.dataset)
+    const criteria = target.dataset.criteria
+    setSearchCriteria((prevSearch) => {
+      return { ...prevSearch, [criteria]: target.value }
+    })
   }
 
   function search(event) {
