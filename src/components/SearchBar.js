@@ -23,55 +23,63 @@ const mockData = [
 
 function SearchBar() {
   const [searchCriteria, setSearchCriteria] = useState({
-    location: "",
-    startDate: "",
-    endDate: ""
+    location: { value: "" },
+    startDate: { value: "" },
+    endDate: { value: "" }
   })
   const [errors, setErrors] = useState({
     location: false,
     startDate: false,
     endDate: false
   })
+
   const [results, setResults] = useState([])
+
+  const fields = [
+    {
+      name: "location",
+      type: "text",
+      label: "Location",
+      placeholder: "Search by location..."
+    },
+    { name: "startDate", type: "date", label: "Check In" },
+    { name: "endDate", type: "date", label: "Check Out" }
+  ]
 
   return (
     <>
       <form>
         <h2>Search for your next experience</h2>
-        <label htmlFor="location">Location</label>
-        <input
-          id="location"
-          type="text"
-          onChange={updateSearch}
-          data-criteria="location"
-          placeholder="Search by location..."
-        />
-        <label htmlFor="check-in">Check-in</label>
-        <input
-          id="check-in"
-          type="date"
-          data-criteria="startDate"
-          onChange={updateSearch}
-        />
-        <label htmlFor="check-out">Check-Out</label>
-        <input
-          id="check-out"
-          type="date"
-          data-criteria="endDate"
-          onChange={updateSearch}
-        />
+        {fields.map(({ name, type, label, placeholder = "" }) => (
+          <>
+            {errors[name] && <p style={{ color: "red" }}>{label} required</p>}
+            <label htmlFor={name}>{label}</label>
+            <input
+              id={name}
+              type={type}
+              data-criteria={name}
+              onChange={updateSearch}
+              placeholder={placeholder}
+            />
+          </>
+        ))}
         <button onClick={search}>Search</button>
       </form>
-      {console.log(errors)}
-      {results.map((resultItem, index) => (
-        <div key={`event-${index}`}>
-          <p>Name: {resultItem.name}</p>
-          <p>Location: {resultItem.location}</p>
-          <p>Start: {resultItem.startDate}</p>
-          <p>End: {resultItem.endDate}</p>
-          <hr />
-        </div>
-      ))}
+
+      {/* Results placeholder */}
+      {!results.length ? (
+        <p>No results found...</p>
+      ) : (
+        results.map((resultItem, index) => (
+          <div key={`event-${index}`}>
+            <p>Name: {resultItem.name}</p>
+            <p>Location: {resultItem.location}</p>
+            <p>Start: {resultItem.startDate}</p>
+            <p>End: {resultItem.endDate}</p>
+            <hr />
+          </div>
+        ))
+      )}
     </>
   )
 
@@ -79,6 +87,9 @@ function SearchBar() {
     const criteria = target.dataset.criteria
     setSearchCriteria((prevSearchCriteria) => {
       return { ...prevSearchCriteria, [criteria]: target.value.toLowerCase() }
+    })
+    setErrors((prevErrors) => {
+      return { ...prevErrors, [criteria]: false }
     })
   }
 
