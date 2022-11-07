@@ -128,7 +128,9 @@ function SearchBar() {
   function isDateWithinRange(startOrEnd, item) {
     const searchDate = new Date(searchCriteria[`${startOrEnd}Date`])
     const itemDate = new Date(item[`${startOrEnd}Date`])
-    return searchDate >= itemDate
+    return startOrEnd === "start"
+      ? searchDate >= itemDate
+      : searchDate <= itemDate
   }
 }
 
