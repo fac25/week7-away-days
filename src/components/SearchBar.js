@@ -7,8 +7,8 @@ const mockData = [
     sport: "Football",
     description: "asdfasdf",
     location: "Buenos Aires",
-    startDate: "2022-11-08",
-    endDate: "2022-11-09"
+    startDate: "2022-11-09",
+    endDate: "2022-11-10"
   },
   {
     id: 1,
@@ -42,8 +42,8 @@ function SearchBar() {
       <input type="date" data-criteria="endDate" onChange={updateSearch} />
       <button onClick={search}>Search</button>
 
-      {results.map((resultItem) => (
-        <div>
+      {results.map((resultItem, index) => (
+        <div key={`event-${index}`}>
           <p>Name: {resultItem.name}</p>
           <p>Location: {resultItem.location}</p>
           <p>Start: {resultItem.startDate}</p>
@@ -56,9 +56,8 @@ function SearchBar() {
 
   function updateSearch({ target }) {
     const criteria = target.dataset.criteria
-    const lowerCaseValue = target.value.toLowerCase()
     setSearchCriteria((prevSearchCriteria) => {
-      return { ...prevSearchCriteria, [criteria]: lowerCaseValue }
+      return { ...prevSearchCriteria, [criteria]: target.value.toLowerCase() }
     })
   }
 
@@ -67,12 +66,22 @@ function SearchBar() {
 
     setResults(
       mockData.filter((item) => {
-        const isLocationMatch = item.location
+        const isLocationInItem = item.location
           .toLowerCase()
           .includes(searchCriteria.location)
-        return isLocationMatch
+        return (
+          isLocationInItem &&
+          isDateWithinRange("start", item) &&
+          isDateWithinRange("end", item)
+        )
       })
     )
+  }
+
+  function isDateWithinRange(startOrEnd, item) {
+    const searchDate = new Date(searchCriteria[`${startOrEnd}Date`])
+    const itemDate = new Date(item[`${startOrEnd}Date`])
+    return searchDate >= itemDate
   }
 }
 
