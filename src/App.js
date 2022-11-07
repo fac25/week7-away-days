@@ -6,9 +6,10 @@ import AboutUs from "./pages/AboutUs.js";
 import Contact from "./pages/Contact.js";
 import MyProfile from "./pages/MyProfile.js";
 import CreateEvent from "./pages/CreateEvent.js";
-import SearchBar from "./components/SearchBar"
+import SearchBar from "./components/SearchBar";
 import { DataStore } from "@aws-amplify/datastore";
 import { Users } from "./models";
+import DisplayReviews from "./components/DisplayReviews.js";
 
 function App() {
   return (
@@ -28,8 +29,9 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
+      <DisplayReviews />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
