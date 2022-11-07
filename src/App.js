@@ -1,8 +1,8 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-
-import { DataStore } from "@aws-amplify/datastore";
-import { USERS } from "./models";
+import { DataStore } from "@aws-amplify/datastore"
+import { USERS } from "./models"
+import SearchBar from "./components/SearchBar"
 
 function App() {
   async function addData() {
@@ -10,24 +10,25 @@ function App() {
       new USERS({
         name: "S",
         lastname: "P",
-        email: "test12346789@testemailtestemail.com",
+        email: "test12346789@testemailtestemail.com"
       })
-    );
-    const models = await DataStore.query(USERS);
-    console.log(models);
+    )
+    const models = await DataStore.query(USERS)
+    console.log(models)
   }
 
   return (
     <div className="App">
       <h1>Away Days</h1>
+      <SearchBar />
+
       <BrowserRouter>
         <Routes>
           {/* <Route path="/create-event" element={<CreateEvent />}/> */}
         </Routes>
       </BrowserRouter>
-      
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
