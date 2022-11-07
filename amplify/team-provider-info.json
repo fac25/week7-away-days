@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awaydays-staging-142852-authRole",
+      "UnauthRoleArn": "arn:aws:iam::270842130747:role/amplify-awaydays-staging-142852-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::270842130747:role/amplify-awaydays-staging-142852-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-awaydays-staging-142852-deployment",
+      "UnauthRoleName": "amplify-awaydays-staging-142852-unauthRole",
+      "StackName": "amplify-awaydays-staging-142852",
+      "StackId": "arn:aws:cloudformation:us-east-1:270842130747:stack/amplify-awaydays-staging-142852/018676a0-5c4d-11ed-b4b9-12e811c7a989",
+      "AmplifyAppId": "dw15sj5lzadq"
+    }
+  }
+}

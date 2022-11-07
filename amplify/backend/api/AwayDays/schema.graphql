@@ -1,0 +1,6 @@
+type USERS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  lastname: String
+  email: AWSEmail
+}
