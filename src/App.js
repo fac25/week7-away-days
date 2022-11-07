@@ -10,7 +10,7 @@ function App() {
     await DataStore.save(
       new USERS({
         name: "S",
-        lastname: "Ps",
+        lastname: "P",
         email: "test12346789@testemailtestemail.com",
       })
     );
