@@ -6,27 +6,16 @@ import AboutUs from "./pages/AboutUs.js";
 import Contact from "./pages/Contact.js";
 import MyProfile from "./pages/MyProfile.js";
 import CreateEvent from "./pages/CreateEvent.js";
-
+import SearchBar from "./components/SearchBar"
 import { DataStore } from "@aws-amplify/datastore";
 import { Users } from "./models";
-
-async function addData() {
-  await DataStore.save(
-    new Users({
-      name: "S",
-      lastname: "P",
-      email: "test12@outlook.com",
-    })
-  );
-  const models = await DataStore.query(Users);
-  console.log(models);
-}
 
 function App() {
   return (
     <div className="App">
-      <button onClick={addData}>Click</button>
       <h1>Away Days</h1>
+      <SearchBar />
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -40,7 +29,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
