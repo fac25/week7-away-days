@@ -1,6 +1,22 @@
-type USERS @model @auth(rules: [{allow: public}]) {
+type House @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  location: String
+  description: String
+  img: AWSURL
+  facilities: String
+}
+
+type Events @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  sport: String
+  description: String
+}
+
+type Users @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String
   lastname: String
   email: AWSEmail
 }
+ 

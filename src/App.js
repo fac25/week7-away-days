@@ -8,23 +8,24 @@ import MyProfile from "./pages/MyProfile.js";
 import CreateEvent from "./pages/CreateEvent.js";
 
 import { DataStore } from "@aws-amplify/datastore";
-import { USERS } from "./models";
+import { Users } from "./models";
+
+async function addData() {
+  await DataStore.save(
+    new Users({
+      name: "S",
+      lastname: "P",
+      email: "test12@outlook.com",
+    })
+  );
+  const models = await DataStore.query(Users);
+  console.log(models);
+}
 
 function App() {
-  async function addData() {
-    await DataStore.save(
-      new USERS({
-        name: "S",
-        lastname: "P",
-        email: "test12346789@testemailtestemail.com",
-      })
-    );
-    const models = await DataStore.query(USERS);
-    console.log(models);
-  }
-
   return (
     <div className="App">
+      <button onClick={addData}>Click</button>
       <h1>Away Days</h1>
       <BrowserRouter>
         <Routes>
