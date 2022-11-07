@@ -1,70 +1,169 @@
-# Getting Started with Create React App
+# In-house Project - Away Days
+### By: Alex - Karwan - Patrick - Suraj
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## User stories: 
 
-In the project directory, you can run:
+## Core
+- [ ] [As a sports enthusiast I would like to see sporting events around the world][i1]
+- [ ] [As a host I would like to share/host new experiences so that I can meet new people][i7]
+- [ ] As a curious person I would like to view detailed information about the hosts so that I can feel safe
+- [ ] As a concerned host I would like to know more about the person that's potentially staying with me
+- [ ] As a concerned user I would like to see what other people have to say about the host I will stay with 
+- [ ] As a generous person I would like to invite people to sporting events so that I give back to the community
 
-### `npm start`
+## Stretch
+- [ ] As a traveller I would like to know how far the events are from the house.
+- [ ] As a social user I would like to get information about nearby facilities
+- [ ] As a person that doesn't recall names, I would like to have a visual representation of where the event will be
+- [ ] As a person concerned with my privacy I would like to know that my personal details are safe 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- Issue references -->
+[i1]: https://github.com/fac25/week7-Away-Days/issues/1
+[i7]: https://github.com/fac25/week7-Away-Days/issues/7
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Introduction 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### What are you building?
 
-### `npm run build`
+- A platform to bring together sports fans.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Why are you building it?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To make it easier for people to find tickets for sporting events with a place to stay. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project scope 
 
-### `npm run eject`
+### What are you not building?
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+We're not building a complete copy of couchsurfing. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### How did you decide what features were important?
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+From user feedback and our website inspirations. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Project plan 
 
-## Learn More
+### How are you going to structure your sprints?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+We will work on the main features first and then bring together each page after. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### What order are you going to build in?
 
-### Code Splitting
+Set up the database first ...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### How did user research inform your plan?
 
-### Analyzing the Bundle Size
+We changed various aspects of each page, according to what our users told us. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Requirement analysis 
 
-### Making a Progressive Web App
+### How will you ensure your project is accessible to as many users as possible?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Are there any legal or regulatory requirements you should consider?
 
-### Advanced Configuration
+## Project learnings 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Did your team work effectively?
 
-### Deployment
+### What would you do differently next time?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Research and findings 
 
-### `npm run build` fails to minify
+### What did you find out from user testing?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project outcomes 
+
+### Were your assumptions right or wrong?
+
+## Recommendations and conclusions 
+
+### What features would you prioritise to build next?
+
+### Was the project a success?
+
+## Software Development Lifecycle stages 
+
+### Planning 
+
+#### What roles did your team take on?
+
+#### Explain the roles and responsibilities of all people working within the software development lifecycle, and how they relate to the project (K2)
+
+#### Did these roles help your team work effectively?
+
+
+#### Outline how teams work effectively to produce software and how to contribute appropriately (K6) 
+
+
+#### Compare and contrast the requirements of a software development team, and how they would ensure that each member (including themselves) were able to make a contribution (K6)
+
+### Analysis 
+
+
+#### What might be the intended and unintended consequences of building this product?
+
+### Design 
+
+
+#### How did you plan a user experience?
+
+
+#### What technical decisions did you make?
+
+
+#### Server-render vs client-render vs both
+
+
+#### Relational or non-relational or no DB
+
+
+#### Self-hosted or platform-as-a-service
+
+
+#### Frontend first vs DB first
+
+
+#### Did you create a technical specification?
+
+
+#### Review methods of software design with reference to functional/technical specifications and apply a justified approach to software development (K11, S11, S12)
+
+## Implementation/Build 
+
+### How did you ensure your code was good?
+
+### Create logical and maintainable code to deliver project outcomes, explaining their choice of approach. (S1)
+
+### What interesting technical problems did you have to solve?
+
+### Outline and apply the rationale and use of algorithms, logic and data structures. (K9, S16)
+
+### How did you debug issues that arose?
+
+### Apply structured techniques to problem solving to identify and resolve issues and debug basic flaws in code (S7)
+
+### Test 
+
+#### How did you verify your project worked correctly?
+
+#### Identify and create test scenarios which satisfy the project specification (S6)
+
+#### Did writing automated tests catch any bugs?
+
+#### Analyse unit testing results and review the outcomes, correcting errors. (S4)
+
+### Deploy 
+
+#### Where/how did you deploy your application?
+
+#### Review and justify their contribution to building, managing and deploying code into the relevant environment in accordance with the project specification (S10)
+
+#### What problems did you encounter during deployment?
+
+### Maintain 
+
+#### Is it easy for someone make changes to the codebase?
+
+#### Could a new person quickly be onboarded to contribute?
