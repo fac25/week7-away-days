@@ -27,7 +27,8 @@
 
 ### What are you building?
 
-- A platform to bring together sports fans.
+It became apparent that there was a hole to be filled with platform to bring together sports fans. 
+What if Couchsurfing met Meetup? This mashup is what we decided to build.
 
 ### Why are you building it?
 
@@ -41,21 +42,25 @@ We're not building a complete copy of couchsurfing.
 
 ### How did you decide what features were important?
 
-From user feedback and our website inspirations. 
+We conducted user research using a lo-fi wireframe and flow. From user feedback and our website inspirations, we managed to determine what would be the core functionality and features for our website.
 
 ## Project plan 
 
 ### How are you going to structure your sprints?
 
-We will work on the main features first and then bring together each page after. 
+We split our project idea into multiple features - features that will be used across the platform. Once those main features were identified we decided to work on them first.
+The features would be built in a self-contained environment to later bring them together.
 
 ### What order are you going to build in?
 
-Set up the database first ...
+1. Folder structure
+2. Database
+3. Essential Features to deliver a minimal viable product
+4. Create the product pages using the components/features we built
 
 ### How did user research inform your plan?
 
-We changed various aspects of each page, according to what our users told us. 
+We changed various aspects of each page, according to what our users told us. Thanks to the feedback received, it was brought to our attention that safety was a big factor in the product. How the users would interact with each other, how they would find out about each other before said interaction. Those became the priority for us - which was not the case before the user research.
 
 ## Requirement analysis 
 
