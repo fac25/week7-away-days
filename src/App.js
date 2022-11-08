@@ -50,13 +50,16 @@ async function addUser() {
 
 // --------------------------------- MAIN APP
 
-function App() {
+function App({ signOut, user }) {
   return (
     <div className="App">
       <button onClick={addUser}>Create User / Log</button>
       {/* <button onClick={deleteStuff}>Delete</button> */}
 
       <h1>Away Days</h1>
+      {/* Signed In User Email Display */}
+      {user.attributes.email}
+      <button onClick={signOut}>Sign out</button>
       <SearchBar />
 
       <BrowserRouter>
