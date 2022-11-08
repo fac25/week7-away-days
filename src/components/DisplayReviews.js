@@ -1,46 +1,41 @@
+import { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
+import { DataStore } from "@aws-amplify/datastore";
+import { Reviews } from "../models";
+import { ConsoleLogger } from "@aws-amplify/core";
 
 export default function DisplayReviews() {
-  const reviews = [
-    {
-      name: "Alex",
-      rating: 5,
-      description: "Amazing host. Would recommened!",
-    },
-    {
-      name: "Suraj",
-      rating: 4,
-      description: "The best experience ever!",
-    },
-    {
-      name: "Patrick",
-      rating: 1,
-      description: "Terrible!",
-    },
-    {
-      name: "Karwan",
-      rating: 3,
-      description: "I really don't know!",
-    },
-  ];
+  const [reviewsApi, setReviewsApi] = useState([]);
+
+  useEffect(() => {
+    async function fetchReviews() {
+      let awsReviews = await DataStore.query(Reviews);
+      setReviewsApi(awsReviews);
+    }
+    fetchReviews();
+  }, []);
 
   return (
     <div>
-      {reviews.map((review, index) => {
-        return (
-          <ul key={index}>
-            <li>{review.name}</li>
-            <li>
-              {Array(review.rating)
-                .fill()
-                .map((_, index) => (
-                  <FaStar key={index} color="orange" />
-                ))}
-            </li>
-            <li>{review.description}</li>
-          </ul>
-        );
-      })}
+      {reviewsApi ? (
+        reviewsApi.map((review, index) => {
+          return (
+            <ul key={index}>
+              <li>{review.name}</li>
+              <li>
+                {Array(review.rating)
+                  .fill()
+                  .map((_, index) => (
+                    <FaStar key={index} color="orange" />
+                  ))}
+              </li>
+              <li>{review.description}</li>
+            </ul>
+          );
+        })
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }
