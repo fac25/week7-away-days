@@ -10,6 +10,8 @@ import SearchBar from "./components/SearchBar";
 import { DataStore } from "@aws-amplify/datastore";
 import DisplayReviews from "./components/DisplayReviews.js";
 import { Users, Accommodation, Events, Profile, Reviews } from "./models";
+// Add Auth
+import { withAuthenticator } from "@aws-amplify/ui-react";
 
 // AWS Create User ------------------------------
 async function addUser() {
@@ -75,4 +77,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
