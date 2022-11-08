@@ -1,19 +1,29 @@
+// React
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// AWS, Auth, Storage
+import { DataStore } from "@aws-amplify/datastore";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+
+// Components
 import Layout from "./components/Layout.js";
+import SearchBar from "./components/SearchBar";
+import DisplayReviews from "./components/DisplayReviews.js";
+
+// Pages
 import SignUp from "./pages/SignUp.js";
 import Login from "./pages/Login.js";
 import AboutUs from "./pages/AboutUs.js";
 import Contact from "./pages/Contact.js";
 import MyProfile from "./pages/MyProfile.js";
 import CreateEvent from "./pages/CreateEvent.js";
-import SearchBar from "./components/SearchBar";
-import { DataStore } from "@aws-amplify/datastore";
-import DisplayReviews from "./components/DisplayReviews.js";
-import { Users, Accommodation, Events, Profile, Reviews } from "./models";
-// Add Auth
-import { withAuthenticator } from "@aws-amplify/ui-react";
 
-// AWS Create User ------------------------------
+// AWS Table
+import { Users, Accommodation, Events, Profile, Reviews } from "./models";
+import UploadImg from "./components/UploadImg.js";
+
+// --------------------------------- AWS Create User Function ---------------------------------
+// --------------------------------------------------------------------------------------------
 async function addUser() {
   // Create User
   // await DataStore.save(
@@ -39,7 +49,7 @@ async function addUser() {
   );
 }
 
-// -------------------------------- DELETE STUFF
+// ------- DELETE DATA -------
 // async function deleteStuff() {
 //   const models = await DataStore.query(
 //     Users,
@@ -48,18 +58,28 @@ async function addUser() {
 //   DataStore.delete(models);
 // }
 
-// --------------------------------- MAIN APP
+// --------------------------------- MAIN APP ---------------------------------
+// ----------------------------------------------------------------------------
 
 function App({ signOut, user }) {
   return (
     <div className="App">
-      <button onClick={addUser}>Create User / Log</button>
-      {/* <button onClick={deleteStuff}>Delete</button> */}
+      {/* ------------------------------AWS TESTING--------------------------------- */}
+      {/* -------------------------------------------------------------------------- */}
+      <UploadImg />
 
-      <h1>Away Days</h1>
-      {/* Signed In User Email Display */}
+      {/* AWS Data */}
+      <button onClick={addUser}>Create User / Console.Log</button>
+      {/* <button onClick={deleteStuff}>Delete Data</button> */}
+
+      {/* AWS Auth */}
       {user.attributes.email}
       <button onClick={signOut}>Sign out</button>
+
+      {/* -------------------------------------------------------------------------- */}
+      {/* -------------------------------------------------------------------------- */}
+
+      <h1>Away Days</h1>
       <SearchBar />
 
       <BrowserRouter>

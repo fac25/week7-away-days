@@ -56,5 +56,12 @@
         ]
       }
     }
+  },
+  "storage": {
+    "s3awaydaysimg": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
   }
 }
