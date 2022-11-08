@@ -10,6 +10,8 @@ import SearchBar from "./components/SearchBar";
 import { DataStore } from "@aws-amplify/datastore";
 import DisplayReviews from "./components/DisplayReviews.js";
 import { Users, Accommodation, Events, Profile, Reviews } from "./models";
+// Add Auth
+import { withAuthenticator } from "@aws-amplify/ui-react";
 
 // AWS Create User ------------------------------
 async function addUser() {
@@ -48,13 +50,16 @@ async function addUser() {
 
 // --------------------------------- MAIN APP
 
-function App() {
+function App({ signOut, user }) {
   return (
     <div className="App">
       <button onClick={addUser}>Create User / Log</button>
       {/* <button onClick={deleteStuff}>Delete</button> */}
 
       <h1>Away Days</h1>
+      {/* Signed In User Email Display */}
+      {user.attributes.email}
+      <button onClick={signOut}>Sign out</button>
       <SearchBar />
 
       <BrowserRouter>
@@ -75,4 +80,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
