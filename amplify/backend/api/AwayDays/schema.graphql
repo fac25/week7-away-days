@@ -1,16 +1,35 @@
-type House @model @auth(rules: [{allow: public}]) {
+type Reviews @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  rating: Int
+  description: String
+  UserID: String
+}
+
+type Profile @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  about: String
+  UserID: String
+}
+
+type Accommodation @model @auth(rules: [{allow: public}]) {
   id: ID!
   location: String
   description: String
-  img: AWSURL
-  facilities: String
+  img: [AWSURL]
+  facilities: [String]
+  UserID: String
 }
 
 type Events @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String
   sport: String
+  img: AWSURL
+  startDate: String
+  endDate: String
   description: String
+  UserID: String
 }
 
 type Users @model @auth(rules: [{allow: public}]) {
@@ -18,5 +37,6 @@ type Users @model @auth(rules: [{allow: public}]) {
   name: String
   lastname: String
   email: AWSEmail
+  password: String
 }
  
