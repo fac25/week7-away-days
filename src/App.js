@@ -8,7 +8,7 @@ import MyProfile from "./pages/MyProfile.js";
 import CreateEvent from "./pages/CreateEvent.js";
 import SearchBar from "./components/SearchBar";
 import { DataStore } from "@aws-amplify/datastore";
-// import DisplayReviews from "./components/DisplayReviews.js";
+import DisplayReviews from "./components/DisplayReviews.js";
 import { Users, Accommodation, Events, Profile, Reviews } from "./models";
 
 // AWS Create User ------------------------------
@@ -70,7 +70,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
-      {/* <DisplayReviews /> */}
+      <DisplayReviews />
     </div>
   );
 }
