@@ -37,9 +37,6 @@ const CreateEvent = ({Events, DataStore}) => {
     );
 
     const event = await DataStore.query(Events);
-    console.log(
-      "Event retrieved successfully!" + JSON.stringify(event, null, 2)
-    );
   };
 
   return (
