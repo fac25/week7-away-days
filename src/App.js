@@ -1,39 +1,46 @@
 // React
-import { useState } from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // AWS, Auth, Storage
-import { DataStore } from "@aws-amplify/datastore"
-import { Accommodation, Events, Profile } from "./models"
+import { DataStore } from "@aws-amplify/datastore";
+import { Accommodation, Events, Profile } from "./models";
 
-// Components
-import Layout from "./components/Layout.js"
+// Components / Pages
+import Layout from "./components/Layout.js";
 
-// Pages
-import Authenticate from "./pages/Authenticate.js"
-import AboutUs from "./pages/AboutUs.js"
-import Contact from "./pages/Contact.js"
-import MyProfile from "./pages/MyProfile.js"
-import Email from "./components/Email"
-import Footer from "./components/Footers.js"
+import Authenticate from "./pages/Authenticate.js";
+import AboutUs from "./pages/AboutUs.js";
+import Contact from "./pages/Contact.js";
+import MyProfile from "./pages/MyProfile.js";
+import Email from "./components/Email";
+import Footer from "./components/Footers.js";
 
-import CreateEvent from "./components/event/CreateEvent"
-import CurrentEvents from "./components/event/CurrentEvent.js"
+import CreateEvent from "./components/event/CreateEvent";
+import CurrentEvents from "./components/event/CurrentEvent.js";
 
-import CreateAccommodation from "./components/accommodation/CreateAccommodation"
-import DisplayAccommodation from "./components/accommodation/DisplayAccommodation"
+import CreateAccommodation from "./components/accommodation/CreateAccommodation";
+import DisplayAccommodation from "./components/accommodation/DisplayAccommodation";
 
-import CreateReview from "./components/reviews/CreateReview"
-import DisplayReviews from "./components/reviews/DisplayReviews"
+import CreateReview from "./components/reviews/CreateReview";
+import DisplayReviews from "./components/reviews/DisplayReviews";
 
-import CreateProfile from "./components/profile/CreateProfile"
-import DisplayProfile from "./components/profile/DisplayProfile"
+import CreateProfile from "./components/profile/CreateProfile";
+import DisplayProfile from "./components/profile/DisplayProfile";
+
+// AWS Branch -----
+import UploadImg from "./components/UploadImg";
+// AWS Branch -----
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
 
   return (
     <div className="App">
+      {/* AWS Branch ----- */}
+      <UploadImg />
+      {/* AWS Branch ----- */}
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout user={user} setUser={setUser} />}>
@@ -93,7 +100,7 @@ function App() {
       </BrowserRouter>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

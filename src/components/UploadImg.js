@@ -32,10 +32,28 @@ export default function UploadImg() {
     setImages(imageKeys);
   }
 
+  // console.log(images);
+
   async function onChange(e) {
     const file = e.target.files[0];
-    const result = await Storage.put(file.name, file);
-    console.log("result: ", result);
+
+    images.map(async (image) => {
+      if (!image.includes(file.name)) {
+        await Storage.put(file.name, file);
+
+        console.log("Pic", file.name);
+      }
+      if (image.includes(file.name)) {
+        await Storage.put(file.name + `${Date.now().toString()}`, file);
+
+        console.log("+ Pic", file.name);
+      }
+    });
+
+    // const result = await Storage.put(file.name, file);
+
+    // console.log("file: ", file);
+    // console.log("result: ", result);
 
     fetchImages();
   }
