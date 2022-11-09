@@ -8,13 +8,14 @@ import { Accommodation, Events, Profile } from "./models";
 
 // Components / Pages
 import Layout from "./components/Layout.js";
-
 import Authenticate from "./pages/Authenticate.js";
 import AboutUs from "./pages/AboutUs.js";
 import Contact from "./pages/Contact.js";
 import MyProfile from "./pages/MyProfile.js";
 import Email from "./components/Email";
 import Footer from "./components/Footers.js";
+import LandingPage from "./pages/LandingPage.js";
+import Search from "./pages/Search";
 
 import CreateEvent from "./components/event/CreateEvent";
 import CurrentEvents from "./components/event/CurrentEvent.js";
@@ -43,6 +44,7 @@ function App() {
 
       <BrowserRouter>
         <Routes>
+          {/* Start of layout route */}
           <Route path="/" element={<Layout user={user} setUser={setUser} />}>
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
@@ -91,7 +93,10 @@ function App() {
             />
 
             <Route path="/email" element={<Email />} />
+            <Route path="/search" element={<Search />} />
           </Route>
+          {/* End of Layout route */}
+          <Route path="/landing-page" element={<LandingPage />} />
           <Route
             path="/authenticate"
             element={<Authenticate setUser={setUser} />}
