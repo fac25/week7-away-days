@@ -29,19 +29,11 @@ import DisplayReviews from "./components/reviews/DisplayReviews";
 import CreateProfile from "./components/profile/CreateProfile";
 import DisplayProfile from "./components/profile/DisplayProfile";
 
-// AWS Branch -----
-import UploadImg from "./components/UploadImg";
-// AWS Branch -----
-
 function App() {
   const [user, setUser] = useState(null);
 
   return (
     <div className="App">
-      {/* AWS Branch ----- */}
-      <UploadImg />
-      {/* AWS Branch ----- */}
-
       <BrowserRouter>
         <Routes>
           {/* Start of layout route */}
