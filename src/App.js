@@ -1,29 +1,24 @@
 // React
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// AWS, Auth, Storage
-// import { DataStore } from "@aws-amplify/datastore";
-// import { Users, Accommodation, Events, Profile, Reviews } from "./models";
-
+import { useState } from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 // Components
-import Layout from "./components/Layout.js";
+import Layout from "./components/Layout.js"
 
 // Pages
-import Authenticate from "./pages/Authenticate.js";
-import AboutUs from "./pages/AboutUs.js";
-import Contact from "./pages/Contact.js";
-import MyProfile from "./pages/MyProfile.js";
-import CreateEvent from "./pages/CreateEvent.js";
-
-// --------------------------------- MAIN APP ---------------------------------
-// ----------------------------------------------------------------------------
+import Authenticate from "./pages/Authenticate.js"
+import AboutUs from "./pages/AboutUs.js"
+import Contact from "./pages/Contact.js"
+import MyProfile from "./pages/MyProfile.js"
+import CreateEvent from "./pages/CreateEvent.js"
 
 function App() {
+  const [user, setUser] = useState({})
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Layout user={user} />}>
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/my-profile" element={<MyProfile />} />
@@ -33,7 +28,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
