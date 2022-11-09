@@ -1,11 +1,8 @@
 import { Storage } from "aws-amplify";
 import { useState, useEffect } from "react";
 
-// ------------------------------AWS TESTING---------------------------------
-// --------------------------------------------------------------------------
-
 export default function UploadImg() {
-  // AWS Imgs
+  // AWS IMG Array
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -32,17 +29,14 @@ export default function UploadImg() {
     setImages(imageKeys);
   }
 
+  // Upload Imgs
   async function onChange(e) {
     const file = e.target.files[0];
-    const result = await Storage.put(file.name, file);
-    console.log("result: ", result);
+
+    await Storage.put(file.name + `${Date.now().toString()}`, file);
 
     fetchImages();
   }
-
-  //   Storage.list("photos/").then((result) => console.log(result));
-  // ------------------------------AWS TESTING---------------------------------
-  // --------------------------------------------------------------------------
 
   return (
     <div>

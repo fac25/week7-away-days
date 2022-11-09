@@ -6,10 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DataStore } from "@aws-amplify/datastore";
 import { Accommodation, Events, Profile } from "./models";
 
-// Components
+// Components / Pages
 import Layout from "./components/Layout.js";
-
-// Pages
 import Authenticate from "./pages/Authenticate.js";
 import AboutUs from "./pages/AboutUs.js";
 import Contact from "./pages/Contact.js";
