@@ -106,6 +106,7 @@ type EagerEvents = {
   readonly startDate?: string | null;
   readonly endDate?: string | null;
   readonly description?: string | null;
+  readonly location?: string | null;
   readonly UserID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -119,6 +120,7 @@ type LazyEvents = {
   readonly startDate?: string | null;
   readonly endDate?: string | null;
   readonly description?: string | null;
+  readonly location?: string | null;
   readonly UserID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
