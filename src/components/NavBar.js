@@ -1,7 +1,7 @@
-import { Outlet, Link } from "react-router-dom";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom"
+import { Auth } from "aws-amplify"
 
-export default function NavBar() {
+export default function NavBar({ user, setUser }) {
   return (
     <div>
       <nav>
@@ -13,11 +13,18 @@ export default function NavBar() {
         <Link to="/authenticate">Sign Up</Link>
         <Link to="/my-profile">My Profile</Link>
         <Link to="/create-event">Create Event</Link>
-        <Link to="/">Sign Out</Link>
+        {user && <button onClick={signOut}>Sign Out</button>}
       </nav>
       <Outlet />
     </div>
-  );
-}
+  )
 
-//Hamburger: Home, Contact, About us
+  async function signOut() {
+    try {
+      setUser(null)
+      await Auth.signOut()
+    } catch (error) {
+      console.log("error signing out: ", error)
+    }
+  }
+}
