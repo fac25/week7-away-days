@@ -59,7 +59,6 @@ function SearchBar({ results, setResults }) {
   async function search(event) {
     event.preventDefault();
     let awsResults = await DataStore.query(Events);
-    console.log(awsResults);
     if (validateForm()) return;
 
     setResults(
