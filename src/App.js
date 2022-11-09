@@ -1,43 +1,42 @@
 // React
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 // AWS, Auth, Storage
-import { DataStore } from "@aws-amplify/datastore";
-import { Users, Accommodation, Events, Profile, Reviews } from "./models";
+import { DataStore } from "@aws-amplify/datastore"
+import { Accommodation, Events, Profile } from "./models"
 
 // Components
-import Layout from "./components/Layout.js";
+import Layout from "./components/Layout.js"
 
 // Pages
-import Authenticate from "./pages/Authenticate.js";
-import MyProfile from "./pages/MyProfile.js";
+import Authenticate from "./pages/Authenticate.js"
+import AboutUs from "./pages/AboutUs.js"
+import Contact from "./pages/Contact.js"
+import MyProfile from "./pages/MyProfile.js"
+import Email from "./components/Email"
+import Footer from "./components/Footers.js"
 
-import CreateEvent from "./components/event/CreateEvent";
-import CurrentEvents from "./components/event/CurrentEvent.js";
+import CreateEvent from "./components/event/CreateEvent"
+import CurrentEvents from "./components/event/CurrentEvent.js"
 
-import CreateAccommodation from "./components/accommodation/CreateAccommodation";
-import DisplayAccommodation from "./components/accommodation/DisplayAccommodation";
+import CreateAccommodation from "./components/accommodation/CreateAccommodation"
+import DisplayAccommodation from "./components/accommodation/DisplayAccommodation"
 
-import CreateReview from "./components/reviews/CreateReview";
-import DisplayReviews from "./components/reviews/DisplayReviews";
+import CreateReview from "./components/reviews/CreateReview"
+import DisplayReviews from "./components/reviews/DisplayReviews"
 
-import CreateProfile from "./components/profile/CreateProfile";
-import DisplayProfile from "./components/profile/DisplayProfile";
-
-import Email from "./components/Email";
-import AboutUs from "./pages/AboutUs.js";
-import Contact from "./pages/Contact.js";
-import Footer from "./components/Footers.js";
-
-// --------------------------------- MAIN APP ---------------------------------
-// ----------------------------------------------------------------------------
+import CreateProfile from "./components/profile/CreateProfile"
+import DisplayProfile from "./components/profile/DisplayProfile"
 
 function App() {
+  const [user, setUser] = useState(null)
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Layout user={user} setUser={setUser} />}>
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/my-profile" element={<MyProfile />} />
@@ -86,12 +85,15 @@ function App() {
 
             <Route path="/email" element={<Email />} />
           </Route>
-          <Route path="/authenticate" element={<Authenticate />} />
+          <Route
+            path="/authenticate"
+            element={<Authenticate setUser={setUser} />}
+          />
         </Routes>
       </BrowserRouter>
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

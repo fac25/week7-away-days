@@ -1,8 +1,8 @@
-import NavBar from "./NavBar.js";
-export default function Layout() {
+import NavBar from "./NavBar.js"
+export default function Layout({ user, setUser }) {
   return (
     <div>
-      <NavBar />
+      <NavBar user={user} setUser={setUser} />
     </div>
-  );
+  )
 }
