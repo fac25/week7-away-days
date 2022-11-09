@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { DataStore } from "@aws-amplify/datastore";
-import { Reviews } from "../models";
-import { ConsoleLogger } from "@aws-amplify/core";
+import { Reviews } from "../../models";
 
 export default function DisplayReviews() {
   const [reviewsApi, setReviewsApi] = useState([]);
