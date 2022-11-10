@@ -22,7 +22,7 @@ const CurrentEvents = ({ Events, DataStore }) => {
 
   return (
     <div>
-      <h1>Past Events</h1>
+      <h1>Events</h1>
       {currentEvents ? (
         <div>
           <h2>{currentEvents.name}</h2>

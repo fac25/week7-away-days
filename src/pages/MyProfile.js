@@ -11,11 +11,9 @@ import DisplayReviews from "../components/reviews/DisplayReviews";
 
 // ------------------------------------
 
-export default function MyProfile() {
+export default function MyProfile({ User }) {
   const [images, setImages] = useState([]);
-  useEffect(() => {
-    fetchImages();
-  }, []);
+  const imgKey = images + User.username;
 
   // Fetchs Image Array
   async function fetchImages() {
@@ -30,6 +28,7 @@ export default function MyProfile() {
 
     imageKeys.unshift();
     setImages(imageKeys);
+    console.log(imageKeys);
   }
 
   const profileImg = images.find((img) => img.includes(`Pot`));
