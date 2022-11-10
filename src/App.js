@@ -28,6 +28,7 @@ import DisplayReviews from "./components/reviews/DisplayReviews";
 
 import CreateProfile from "./components/profile/CreateProfile";
 import DisplayProfile from "./components/profile/DisplayProfile";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -83,7 +84,6 @@ function App() {
                 <DisplayProfile Profile={Profile} DataStore={DataStore} />
               }
             />
-
             <Route path="/email" element={<Email />} />
             <Route path="/search" element={<Search />} />
           </Route>
@@ -95,6 +95,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      <Search />
       <Footer />
     </div>
   );
