@@ -1,5 +1,5 @@
 // React
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // AWS, Auth, Storage
@@ -28,9 +28,14 @@ import DisplayReviews from "./components/reviews/DisplayReviews";
 
 import CreateProfile from "./components/profile/CreateProfile";
 import DisplayProfile from "./components/profile/DisplayProfile";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")));
+  }, []);
 
   return (
     <div className="App">
@@ -83,7 +88,6 @@ function App() {
                 <DisplayProfile Profile={Profile} DataStore={DataStore} />
               }
             />
-
             <Route path="/email" element={<Email />} />
             <Route path="/search" element={<Search />} />
           </Route>
@@ -95,6 +99,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      <Search />
       <Footer />
     </div>
   );
