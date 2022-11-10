@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const CurrentEvents = ({Events, DataStore}) => {
+const CurrentEvents = ({ Events, DataStore }) => {
   const [currentEvents, setCurrentEvents] = useState();
 
   useEffect(() => {
