@@ -4,12 +4,15 @@ type Reviews @model @auth(rules: [{allow: public}]) {
   rating: Int
   description: String
   UserID: String
+  EventID: String
 }
 
 type Profile @model @auth(rules: [{allow: public}]) {
   id: ID!
   about: String
   UserID: String
+  name: String
+  lastName: String
 }
 
 type Accommodation @model @auth(rules: [{allow: public}]) {
@@ -19,6 +22,7 @@ type Accommodation @model @auth(rules: [{allow: public}]) {
   img: [AWSURL]
   facilities: [String]
   UserID: String
+  EventID: String
 }
 
 type Events @model @auth(rules: [{allow: public}]) {
@@ -31,13 +35,5 @@ type Events @model @auth(rules: [{allow: public}]) {
   description: String
   location: String
   UserID: String
-}
-
-type Users @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  name: String
-  lastname: String
-  email: AWSEmail
-  password: String
 }
  
