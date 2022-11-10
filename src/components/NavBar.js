@@ -8,6 +8,7 @@ export default function NavBar({ user, setUser }) {
         <Link to="/">Home</Link>
         <Link to="/about-us">About Us</Link>
         <Link to="/contact">Contact</Link>
+        <Link to="/search">Search</Link>
         {!user && (
           <>
             <Link to="/authenticate">Login</Link>
@@ -15,9 +16,12 @@ export default function NavBar({ user, setUser }) {
           </>
         )}
 
-        <Link to="/my-profile">My Profile</Link>
-        <Link to="/create-event">Create Event</Link>
-        {user && <button onClick={signOut}>Sign Out</button>}
+        {user && (
+          <>
+            <Link to="/create-event">Create Event</Link>
+            <button onClick={signOut}>Sign Out</button>
+          </>
+        )}
       </nav>
       <Outlet />
     </div>

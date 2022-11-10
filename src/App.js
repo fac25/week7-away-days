@@ -48,7 +48,7 @@ function App() {
               path="/current-event/:id"
               element={<CurrentEvent Events={Events} DataStore={DataStore} />}
             />
-             <Route path="/display-reviews" element={<DisplayReviews />} />
+            <Route path="/display-reviews" element={<DisplayReviews />} />
 
             <Route
               path="/display-profile"
@@ -99,7 +99,6 @@ function App() {
           )}
         </Routes>
       </BrowserRouter>
-      <Search />
       <Footer />
     </div>
   );

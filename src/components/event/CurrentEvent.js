@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import DisplayAcommodation from "../accommodation/DisplayAccommodation";
 import DisplayReviews from "../reviews/DisplayReviews";
+import { Events } from "../../models";
+import { DataStore } from "aws-amplify";
 
-const CurrentEvent = ({ Events, DataStore }) => {
+const CurrentEvent = () => {
   const [currentEvent, setCurrentEvent] = useState({});
   const { name, sport, startDate, location, endDate, description, img, id } =
     currentEvent;

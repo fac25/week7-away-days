@@ -13,7 +13,7 @@ import DisplayReviews from "../components/reviews/DisplayReviews";
 
 export default function MyProfile({ User }) {
   const [images, setImages] = useState([]);
-  const imgKey = images + User.username;
+  const imgKey = images + User?.username;
 
   // Fetchs Image Array
   async function fetchImages() {
