@@ -1,5 +1,5 @@
-import { Outlet, Link } from "react-router-dom"
-import { Auth } from "aws-amplify"
+import { Outlet, Link } from "react-router-dom";
+import { Auth } from "aws-amplify";
 
 export default function NavBar({ user, setUser }) {
   return (
@@ -8,23 +8,28 @@ export default function NavBar({ user, setUser }) {
         <Link to="/">Home</Link>
         <Link to="/about-us">About Us</Link>
         <Link to="/contact">Contact</Link>
-        <Link to="/">Away Days</Link>
-        <Link to="/authenticate">Login</Link>
-        <Link to="/authenticate">Sign Up</Link>
+        {!user && (
+          <>
+            <Link to="/authenticate">Login</Link>
+            <Link to="/authenticate">Sign Up</Link>
+          </>
+        )}
+
         <Link to="/my-profile">My Profile</Link>
         <Link to="/create-event">Create Event</Link>
         {user && <button onClick={signOut}>Sign Out</button>}
       </nav>
       <Outlet />
     </div>
-  )
+  );
 
   async function signOut() {
     try {
-      setUser(null)
-      await Auth.signOut()
+      setUser(null);
+      localStorage.clear();
+      await Auth.signOut();
     } catch (error) {
-      console.log("error signing out: ", error)
+      console.log("error signing out: ", error);
     }
   }
 }

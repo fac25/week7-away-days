@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Events } from "../models";
 import { DataStore } from "@aws-amplify/datastore";
 
+import { Navigate } from "react-router-dom";
+
 function SearchBar({ results, setResults }) {
   const [searchCriteria, setSearchCriteria] = useState({
     location: { value: "" },
@@ -29,7 +31,8 @@ function SearchBar({ results, setResults }) {
     <>
       <form>
         <h2>Search for your next experience</h2>
-        {fields.map(({ name, type, label, placeholder = "" }) => (
+        {fields.map(({ index, name, type, label, placeholder = "" }) => {
+          
           <>
             {errors[name] && <p style={{ color: "red" }}>{label} required</p>}
             <label htmlFor={name}>{label}</label>
@@ -40,8 +43,8 @@ function SearchBar({ results, setResults }) {
               onChange={updateSearch}
               placeholder={placeholder}
             />
-          </>
-        ))}
+          </>;
+        })}
         <button onClick={search}>Search</button>
       </form>
     </>
