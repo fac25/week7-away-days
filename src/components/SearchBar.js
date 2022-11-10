@@ -2,18 +2,16 @@ import { useState } from "react";
 import { Events } from "../models";
 import { DataStore } from "@aws-amplify/datastore";
 
-import { Navigate } from "react-router-dom";
-
 function SearchBar({ results, setResults }) {
   const [searchCriteria, setSearchCriteria] = useState({
     location: { value: "" },
     startDate: { value: "" },
-    endDate: { value: "" },
+    endDate: { value: "" }
   });
   const [errors, setErrors] = useState({
     location: false,
     startDate: false,
-    endDate: false,
+    endDate: false
   });
 
   const fields = [
@@ -21,19 +19,18 @@ function SearchBar({ results, setResults }) {
       name: "location",
       type: "text",
       label: "Location",
-      placeholder: "Search by location...",
+      placeholder: "Search by location..."
     },
     { name: "startDate", type: "date", label: "Check In" },
-    { name: "endDate", type: "date", label: "Check Out" },
+    { name: "endDate", type: "date", label: "Check Out" }
   ];
 
   return (
     <>
       <form>
         <h2>Search for your next experience</h2>
-        {fields.map(({ index, name, type, label, placeholder = "" }) => {
-          
-          <>
+        {fields.map(({ index, name, type, label, placeholder = "" }) => (
+          <div key={index}>
             {errors[name] && <p style={{ color: "red" }}>{label} required</p>}
             <label htmlFor={name}>{label}</label>
             <input
@@ -43,12 +40,13 @@ function SearchBar({ results, setResults }) {
               onChange={updateSearch}
               placeholder={placeholder}
             />
-          </>;
-        })}
+          </div>
+        ))}
         <button onClick={search}>Search</button>
       </form>
     </>
   );
+
   function updateSearch({ target }) {
     const criteria = target.dataset.criteria;
     setSearchCriteria((prevSearchCriteria) => {
@@ -67,7 +65,7 @@ function SearchBar({ results, setResults }) {
     setResults(
       awsResults.filter((item) => {
         const isLocationInItem = item.location
-          .toLowerCase()
+          ?.toLowerCase()
           .includes(searchCriteria.location);
         return (
           isLocationInItem &&

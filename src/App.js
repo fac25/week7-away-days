@@ -15,20 +15,18 @@ import MyProfile from "./pages/MyProfile.js";
 import Email from "./components/Email";
 import Footer from "./components/Footers.js";
 import LandingPage from "./pages/LandingPage.js";
-import Search from "./pages/Search";
+import Search from "./pages/Search.js";
 
 import CreateEvent from "./components/event/CreateEvent";
-import CurrentEvents from "./components/event/CurrentEvent.js";
+import CurrentEvent from "./components/event/CurrentEvent.js";
 
 import CreateAccommodation from "./components/accommodation/CreateAccommodation";
-import DisplayAccommodation from "./components/accommodation/DisplayAccommodation";
 
 import CreateReview from "./components/reviews/CreateReview";
 import DisplayReviews from "./components/reviews/DisplayReviews";
 
 import CreateProfile from "./components/profile/CreateProfile";
 import DisplayProfile from "./components/profile/DisplayProfile";
-import SearchBar from "./components/SearchBar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -47,21 +45,10 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/my-profile" element={<MyProfile User={user} />} />
             <Route
-              path="/current-events"
-              element={<CurrentEvents Events={Events} DataStore={DataStore} />}
+              path="/current-event/:id"
+              element={<CurrentEvent Events={Events} DataStore={DataStore} />}
             />
-
-            <Route
-              path="/display-accommodation"
-              element={
-                <DisplayAccommodation
-                  Accommodation={Accommodation}
-                  DataStore={DataStore}
-                />
-              }
-            />
-
-            <Route path="/display-reviews" element={<DisplayReviews />} />
+             <Route path="/display-reviews" element={<DisplayReviews />} />
 
             <Route
               path="/display-profile"
