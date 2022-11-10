@@ -1,44 +1,38 @@
 import { useState, useEffect } from "react";
+import DisplayAcommodation from "../accommodation/DisplayAccommodation";
+import DisplayReviews from "../reviews/DisplayReviews";
 
-const CurrentEvents = ({Events, DataStore}) => {
-  const [currentEvents, setCurrentEvents] = useState();
+const CurrentEvent = ({ Events, DataStore }) => {
+  const [currentEvent, setCurrentEvent] = useState({});
+  const { name, sport, startDate, location, endDate, description, img, id } =
+    currentEvent;
 
   useEffect(() => {
     const getCurrentEvents = async () => {
-      const event = await DataStore.query(
-        Events,
-        "49e46d4e-4b19-43b2-8297-36de2023e528"
-      );
-
-      const getDate = new Date();
-
-      if (event.endDate < getDate.toLocaleDateString) {
-        setCurrentEvents(event);
-      }
+      const eventIdFromUrl = window.location.pathname.split("/").pop();
+      const event = await DataStore.query(Events, eventIdFromUrl);
+      setCurrentEvent(event);
     };
-
     getCurrentEvents();
-  }, [Events, DataStore]);
+  }, []);
 
   return (
-    <div>
-      <h1>Past Events</h1>
-      {currentEvents ? (
+    currentEvent && (
+      <div>
+        <h2>{name}</h2>
+        <h3>{sport}</h3>
+        <p>{location}</p>
         <div>
-          <h2>{currentEvents.name}</h2>
-          <h3>{currentEvents.sport}</h3>
-          <div>
-            <span>{currentEvents.startDate}</span>
-            <span>{currentEvents.endDate}</span>
-          </div>
-          <img src="" alt="test" />
-          <p>{currentEvents.description}</p>
+          <span>{startDate}</span>
+          <span>{endDate}</span>
         </div>
-      ) : (
-        <p>There is no current events</p>
-      )}
-    </div>
+        <img src={img} alt="test" />
+        <p>{description}</p>
+        <DisplayAcommodation eventId={id} />
+        <DisplayReviews eventId={id} />
+      </div>
+    )
   );
 };
 
-export default CurrentEvents;
+export default CurrentEvent;

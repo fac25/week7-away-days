@@ -18,10 +18,9 @@ import LandingPage from "./pages/LandingPage.js";
 import Search from "./pages/Search.js";
 
 import CreateEvent from "./components/event/CreateEvent";
-import CurrentEvents from "./components/event/CurrentEvent.js";
+import CurrentEvent from "./components/event/CurrentEvent.js";
 
 import CreateAccommodation from "./components/accommodation/CreateAccommodation";
-import DisplayAccommodation from "./components/accommodation/DisplayAccommodation";
 
 import CreateReview from "./components/reviews/CreateReview";
 import DisplayReviews from "./components/reviews/DisplayReviews";
@@ -50,22 +49,13 @@ function App() {
               element={<CreateEvent Events={Events} DataStore={DataStore} />}
             />
             <Route
-              path="/current-events"
-              element={<CurrentEvents Events={Events} DataStore={DataStore} />}
+              path="/current-event/:id"
+              element={<CurrentEvent Events={Events} DataStore={DataStore} />}
             />
             <Route
               path="/create-accommodation"
               element={
                 <CreateAccommodation
-                  Accommodation={Accommodation}
-                  DataStore={DataStore}
-                />
-              }
-            />
-            <Route
-              path="/display-accommodation"
-              element={
-                <DisplayAccommodation
                   Accommodation={Accommodation}
                   DataStore={DataStore}
                 />
