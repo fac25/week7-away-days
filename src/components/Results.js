@@ -1,5 +1,4 @@
 export default function Results({ results }) {
-  console.log(results);
   return (
     <div>
       {!results.length ? (
