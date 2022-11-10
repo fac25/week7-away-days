@@ -18,16 +18,13 @@ type EventsMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type UsersMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
 type EagerReviews = {
   readonly id: string;
   readonly name?: string | null;
   readonly rating?: number | null;
   readonly description?: string | null;
   readonly UserID?: string | null;
+  readonly EventID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -38,6 +35,7 @@ type LazyReviews = {
   readonly rating?: number | null;
   readonly description?: string | null;
   readonly UserID?: string | null;
+  readonly EventID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -52,6 +50,8 @@ type EagerProfile = {
   readonly id: string;
   readonly about?: string | null;
   readonly UserID?: string | null;
+  readonly name?: string | null;
+  readonly lastName?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -60,6 +60,8 @@ type LazyProfile = {
   readonly id: string;
   readonly about?: string | null;
   readonly UserID?: string | null;
+  readonly name?: string | null;
+  readonly lastName?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -77,6 +79,7 @@ type EagerAccommodation = {
   readonly img?: (string | null)[] | null;
   readonly facilities?: (string | null)[] | null;
   readonly UserID?: string | null;
+  readonly EventID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -88,6 +91,7 @@ type LazyAccommodation = {
   readonly img?: (string | null)[] | null;
   readonly facilities?: (string | null)[] | null;
   readonly UserID?: string | null;
+  readonly EventID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -130,30 +134,4 @@ export declare type Events = LazyLoading extends LazyLoadingDisabled ? EagerEven
 
 export declare const Events: (new (init: ModelInit<Events, EventsMetaData>) => Events) & {
   copyOf(source: Events, mutator: (draft: MutableModel<Events, EventsMetaData>) => MutableModel<Events, EventsMetaData> | void): Events;
-}
-
-type EagerUsers = {
-  readonly id: string;
-  readonly name?: string | null;
-  readonly lastname?: string | null;
-  readonly email?: string | null;
-  readonly password?: string | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-type LazyUsers = {
-  readonly id: string;
-  readonly name?: string | null;
-  readonly lastname?: string | null;
-  readonly email?: string | null;
-  readonly password?: string | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-export declare type Users = LazyLoading extends LazyLoadingDisabled ? EagerUsers : LazyUsers
-
-export declare const Users: (new (init: ModelInit<Users, UsersMetaData>) => Users) & {
-  copyOf(source: Users, mutator: (draft: MutableModel<Users, UsersMetaData>) => MutableModel<Users, UsersMetaData> | void): Users;
 }
