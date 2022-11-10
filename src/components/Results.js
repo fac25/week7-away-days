@@ -1,4 +1,5 @@
 export default function Results({ results }) {
+  console.log(results);
   return (
     <div>
       {!results.length ? (
@@ -7,9 +8,9 @@ export default function Results({ results }) {
         results.map((resultItem, index) => (
           <div key={`event-${index}`}>
             <p>Name: {resultItem.name}</p>
-            <p>Location: {resultItem.location}</p>
-            <p>Start: {resultItem.startDate}</p>
-            <p>End: {resultItem.endDate}</p>
+            <img src={resultItem.img} alt={`${resultItem.sport}`} />
+            <p>Sport: {resultItem.sport}</p>
+            <p>Description: {resultItem.description}</p>
             <hr />
           </div>
         ))
