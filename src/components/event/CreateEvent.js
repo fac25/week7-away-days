@@ -26,17 +26,19 @@ const CreateEvent = ({Events, DataStore}) => {
   };
 
   const handleClick = async () => {
-    await DataStore.save(
-      new Events({
-        name: name,
-        sport: sport,
-        startDate: startDate,
-        endDate: endDate,
-        description: description,
-      })
-    );
+    // await DataStore.save(
+    //   new Events({
+    //     name: name,
+    //     sport: sport,
+    //     startDate: startDate,
+    //     endDate: endDate,
+    //     description: description,
+    //   })
+    // );
 
-    const event = await DataStore.query(Events);
+    // const event = await DataStore.query(Events);
+
+    console.log(JSON.parse(localStorage.getItem("user")))
   };
 
   return (
