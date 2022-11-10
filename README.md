@@ -1,6 +1,8 @@
 # In-house Project - Away Days
 ### By: Alex - Karwan - Patrick - Suraj
 
+Hosted on AWS [here](https://main.dw15sj5lzadq.amplifyapp.com/)
+
 ## Setup: 
 
 Make sure you have Git and Node (v18) installed.
