@@ -3,8 +3,6 @@ import Results from "../components/Results";
 import SearchBar from "../components/SearchBar";
 
 export default function Search() {
-  // Link searchbar with results
-  // SearchBar + Results here
   const [results, setResults] = useState([]);
   return (
     <div>

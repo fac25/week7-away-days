@@ -3,16 +3,19 @@ import { FaStar } from "react-icons/fa";
 import { DataStore } from "@aws-amplify/datastore";
 import { Reviews } from "../../models";
 
-export default function DisplayReviews() {
+export default function DisplayReviews({ eventId }) {
   const [reviewsApi, setReviewsApi] = useState([]);
 
   useEffect(() => {
     async function fetchReviews() {
-      let awsReviews = await DataStore.query(Reviews);
+      let awsReviews = await DataStore.query(Reviews, (item) =>
+        item.EventID("eq", eventId)
+      );
       setReviewsApi(awsReviews);
     }
-    fetchReviews();
-  }, []);
+    const fetchInterval = setInterval(fetchReviews, 1000);
+    return () => clearInterval(fetchInterval);
+  });
 
   return (
     <div>

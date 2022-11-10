@@ -8,12 +8,12 @@ function SearchBar({ results, setResults }) {
   const [searchCriteria, setSearchCriteria] = useState({
     location: { value: "" },
     startDate: { value: "" },
-    endDate: { value: "" },
+    endDate: { value: "" }
   });
   const [errors, setErrors] = useState({
     location: false,
     startDate: false,
-    endDate: false,
+    endDate: false
   });
 
   const fields = [
@@ -21,10 +21,10 @@ function SearchBar({ results, setResults }) {
       name: "location",
       type: "text",
       label: "Location",
-      placeholder: "Search by location...",
+      placeholder: "Search by location..."
     },
     { name: "startDate", type: "date", label: "Check In" },
-    { name: "endDate", type: "date", label: "Check Out" },
+    { name: "endDate", type: "date", label: "Check Out" }
   ];
 
   return (
@@ -67,7 +67,7 @@ function SearchBar({ results, setResults }) {
     setResults(
       awsResults.filter((item) => {
         const isLocationInItem = item.location
-          .toLowerCase()
+          ?.toLowerCase()
           .includes(searchCriteria.location);
         return (
           isLocationInItem &&
