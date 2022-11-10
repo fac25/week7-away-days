@@ -1,29 +1,20 @@
 import { useState } from "react";
 
 const CreateAccommodation = ({Accommodation, DataStore}) => {
-  const [location, setLocation] = useState();
-  const [description, setDescription] = useState();
-  const [facilities, setFacilities] = useState([]);
+  const [createAccommodation, setCreateAccommodation] = useState({})
 
   const handleChange = (e) => {
-    if (e.target.id === "location") {
-      setLocation(e.target.value);
-    }
-    if (e.target.id === "facilities") {
-      const arrayFacilities = e.target.value.split(",")
-      setFacilities(arrayFacilities);
-    }
-    if (e.target.id === "description") {
-      setDescription(e.target.value);
-    }
+    setCreateAccommodation((prevState) => {
+      return { ...prevState, ...{ [e.target.id]: e.target.value } };
+    });
   };
 
   const handleClick = async () => {
     await DataStore.save(
       new Accommodation({
-        location: location,
-        facilities: facilities,
-        description: description,
+        location: createAccommodation.location,
+        facilities: createAccommodation.facilities,
+        description: createAccommodation.description,
       })
     );
   };

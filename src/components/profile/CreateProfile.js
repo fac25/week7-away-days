@@ -1,18 +1,18 @@
 import { useState } from "react";
 
 const CreateProfile = ({ Profile, DataStore }) => {
-  const [about, setAbout] = useState("");
+  const [createAbout, setCreateAbout] = useState({});
 
   const handleChange = (e) => {
-    if (e.target.id === "about") {
-      setAbout(e.target.value);
-    }
+    setCreateAbout((prevState) => {
+      return { ...prevState, ...{ [e.target.id]: e.target.value } };
+    });
   };
 
   const handleClick = async () => {
     await DataStore.save(
       new Profile({
-        about: about,
+        about: createAbout.about,
       })
     );
   };

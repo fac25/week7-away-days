@@ -1,44 +1,24 @@
 import { useState } from "react";
 
 const CreateEvent = ({Events, DataStore}) => {
-  const [name, setName] = useState("");
-  const [sport, setSport] = useState("");
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [description, setDescription] = useState("");
+  const [createEvent, setCreateEvents] = useState({});
 
   const handleChange = (e) => {
-    if (e.target.id === "name") {
-      setName(e.target.value);
-    }
-    if (e.target.id === "sport") {
-      setSport(e.target.value);
-    }
-    if (e.target.id === "start-date") {
-      setStartDate(e.target.value);
-    }
-    if (e.target.id === "end-date") {
-      setEndDate(e.target.value);
-    }
-    if (e.target.id === "description") {
-      setDescription(e.target.value);
-    }
+    setCreateEvents((prevState) => {
+      return { ...prevState, ...{ [e.target.id]: e.target.value } };
+    });
   };
 
   const handleClick = async () => {
-    // await DataStore.save(
-    //   new Events({
-    //     name: name,
-    //     sport: sport,
-    //     startDate: startDate,
-    //     endDate: endDate,
-    //     description: description,
-    //   })
-    // );
-
-    // const event = await DataStore.query(Events);
-
-    console.log(JSON.parse(localStorage.getItem("user")))
+    await DataStore.save(
+      new Events({
+        name: createEvent.name,
+        sport: createEvent.sport,
+        startDate: createEvent.startDate,
+        endDate: createEvent.endDate,
+        description: createEvent.description,
+      })
+    );
   };
 
   return (

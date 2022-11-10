@@ -1,6 +1,7 @@
 import SearchBar from "../components/SearchBar";
 import { Outlet, Link } from "react-router-dom";
 
+
 export default function LandingPage() {
   return (
     <div>

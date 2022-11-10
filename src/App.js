@@ -39,6 +39,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+
+        <Route path="/landing-page" element={<LandingPage />} />
+          <Route
+            path="/authenticate"
+            element={<Authenticate setUser={setUser} />}
+          />
           {/* Start of layout route */}
           <Route path="/" element={<Layout user={user} setUser={setUser} />}>
             <Route path="/about-us" element={<AboutUs />} />
@@ -81,11 +87,7 @@ function App() {
             <Route path="/search" element={<Search />} />
           </Route>
           {/* End of Layout route */}
-          <Route path="/landing-page" element={<LandingPage />} />
-          <Route
-            path="/authenticate"
-            element={<Authenticate setUser={setUser} />}
-          />
+          
         </Routes>
       </BrowserRouter>
       <Search />

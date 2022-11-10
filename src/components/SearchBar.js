@@ -4,15 +4,15 @@ import { DataStore } from "@aws-amplify/datastore";
 
 function SearchBar({ results, setResults }) {
   const [searchCriteria, setSearchCriteria] = useState({
-    location: { value: "" },
-    startDate: { value: "" },
-    endDate: { value: "" }
+    location: { value: "", error:false },
+    startDate: { value: "", error:false },
+    endDate: { value: "", error: false }
   });
-  const [errors, setErrors] = useState({
-    location: false,
-    startDate: false,
-    endDate: false
-  });
+  // const [errors, setErrors] = useState({
+  //   location: false,
+  //   startDate: false,
+  //   endDate: false
+  // });
 
   const fields = [
     {
@@ -31,7 +31,7 @@ function SearchBar({ results, setResults }) {
         <h2>Search for your next experience</h2>
         {fields.map(({ index, name, type, label, placeholder = "" }) => (
           <div key={index}>
-            {errors[name] && <p style={{ color: "red" }}>{label} required</p>}
+            {searchCriteria[name].error && <p style={{ color: "red" }}>{label} required</p>}
             <label htmlFor={name}>{label}</label>
             <input
               id={name}
@@ -50,11 +50,11 @@ function SearchBar({ results, setResults }) {
   function updateSearch({ target }) {
     const criteria = target.dataset.criteria;
     setSearchCriteria((prevSearchCriteria) => {
-      return { ...prevSearchCriteria, [criteria]: target.value.toLowerCase() };
+      return { ...prevSearchCriteria, [criteria]:{value: target.value.toLowerCase(), error: false} };
     });
-    setErrors((prevErrors) => {
-      return { ...prevErrors, [criteria]: false };
-    });
+    // setErrors((prevErrors) => {
+    //   return { ...prevErrors, [criteria]: false };
+    // });
   }
 
   async function search(event) {
@@ -81,8 +81,8 @@ function SearchBar({ results, setResults }) {
     for (let key in searchCriteria) {
       const isCriteriaEmpty = !searchCriteria[key].length;
       if (isCriteriaEmpty) errorExists = true;
-      setErrors((prevErrors) => {
-        return { ...prevErrors, [key]: isCriteriaEmpty };
+      searchCriteria((prevErrors) => {
+        return { ...prevErrors, [key]: {error: isCriteriaEmpty }};
       });
     }
 
