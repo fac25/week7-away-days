@@ -1,5 +1,5 @@
 // React
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // AWS, Auth, Storage
@@ -32,67 +32,77 @@ import DisplayProfile from "./components/profile/DisplayProfile";
 function App() {
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")));
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          {/* Start of layout route */}
-          <Route path="/" element={<Layout user={user} setUser={setUser} />}>
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/my-profile" element={<MyProfile />} />
-            <Route
-              path="/create-event"
-              element={<CreateEvent Events={Events} DataStore={DataStore} />}
-            />
-            <Route
-              path="/current-events"
-              element={<CurrentEvents Events={Events} DataStore={DataStore} />}
-            />
-            <Route
-              path="/create-accommodation"
-              element={
-                <CreateAccommodation
-                  Accommodation={Accommodation}
-                  DataStore={DataStore}
-                />
-              }
-            />
-            <Route
-              path="/display-accommodation"
-              element={
-                <DisplayAccommodation
-                  Accommodation={Accommodation}
-                  DataStore={DataStore}
-                />
-              }
-            />
-
-            <Route path="/create-review" element={<CreateReview />} />
-            <Route path="/display-reviews" element={<DisplayReviews />} />
-
-            <Route
-              path="/create-profile"
-              element={
-                <CreateProfile Profile={Profile} DataStore={DataStore} />
-              }
-            />
-            <Route
-              path="/display-profile"
-              element={
-                <DisplayProfile Profile={Profile} DataStore={DataStore} />
-              }
-            />
-
-            <Route path="/email" element={<Email />} />
-            <Route path="/search" element={<Search />} />
-          </Route>
-          {/* End of Layout route */}
-          <Route path="/landing-page" element={<LandingPage />} />
           <Route
             path="/authenticate"
             element={<Authenticate setUser={setUser} />}
           />
+          {user ? (
+            // {/* Start of layout route */}
+            <Route path="/" element={<Layout user={user} setUser={setUser} />}>
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/my-profile" element={<MyProfile />} />
+              <Route
+                path="/create-event"
+                element={<CreateEvent Events={Events} DataStore={DataStore} />}
+              />
+              <Route
+                path="/current-events"
+                element={
+                  <CurrentEvents Events={Events} DataStore={DataStore} />
+                }
+              />
+              <Route
+                path="/create-accommodation"
+                element={
+                  <CreateAccommodation
+                    Accommodation={Accommodation}
+                    DataStore={DataStore}
+                  />
+                }
+              />
+              <Route
+                path="/display-accommodation"
+                element={
+                  <DisplayAccommodation
+                    Accommodation={Accommodation}
+                    DataStore={DataStore}
+                  />
+                }
+              />
+
+              <Route path="/create-review" element={<CreateReview />} />
+              <Route path="/display-reviews" element={<DisplayReviews />} />
+
+              <Route
+                path="/create-profile"
+                element={
+                  <CreateProfile Profile={Profile} DataStore={DataStore} />
+                }
+              />
+              <Route
+                path="/display-profile"
+                element={
+                  <DisplayProfile Profile={Profile} DataStore={DataStore} />
+                }
+              />
+
+              <Route path="/email" element={<Email />} />
+              <Route path="/search" element={<Search />} />
+            </Route>
+          ) : (
+            // {/* End of Layout route */}
+
+            <Route path="/" element={<LandingPage />} />
+          )}
         </Routes>
       </BrowserRouter>
       <Footer />
