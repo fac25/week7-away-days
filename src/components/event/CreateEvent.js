@@ -1,45 +1,53 @@
 import { useState } from "react";
+import { Storage } from "aws-amplify";
+import { useNavigate } from "react-router-dom";
 
-const CreateEvent = ({Events, DataStore}) => {
-  const [name, setName] = useState("");
-  const [sport, setSport] = useState("");
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [description, setDescription] = useState("");
+const CreateEvent = ({ User, Events, DataStore }) => {
+  const [createEvent, setCreateEvent] = useState();
+
+  // Img
+  const [img, setImg] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    if (e.target.id === "name") {
-      setName(e.target.value);
-    }
-    if (e.target.id === "sport") {
-      setSport(e.target.value);
-    }
-    if (e.target.id === "start-date") {
-      setStartDate(e.target.value);
-    }
-    if (e.target.id === "end-date") {
-      setEndDate(e.target.value);
-    }
-    if (e.target.id === "description") {
-      setDescription(e.target.value);
-    }
+    setCreateEvent((prveState) => {
+      return { ...prveState, ...{ [e.target.id]: e.target.value } };
+    });
   };
+
+  const imgKey = img + User.username;
 
   const handleClick = async () => {
-    // await DataStore.save(
-    //   new Events({
-    //     name: name,
-    //     sport: sport,
-    //     startDate: startDate,
-    //     endDate: endDate,
-    //     description: description,
-    //   })
-    // );
+    await DataStore.save(
+      new Events({
+        name: createEvent.name,
+        sport: createEvent.sport,
+        img: imgKey,
+        startDate: createEvent.startDate,
+        endDate: createEvent.endDate,
+        description: createEvent.description,
+        location: createEvent.location,
+        UserID: User.username,
+      })
+    );
 
     // const event = await DataStore.query(Events);
+    // console.log(JSON.parse(localStorage.getItem("user")));
 
-    console.log(JSON.parse(localStorage.getItem("user")))
+    navigate("/my-profile");
   };
+
+  // Img
+  async function handleImg(e) {
+    const file = e.target.files[0];
+    setImg(file.name + `${Date.now().toString()}`);
+
+    await Storage.put(
+      file.name + `${Date.now().toString()}` + User.username,
+      file
+    );
+  }
 
   return (
     <div>
@@ -50,14 +58,19 @@ const CreateEvent = ({Events, DataStore}) => {
       <label htmlFor="sport">Sport</label>
       <input type="text" id="sport" onChange={handleChange} />
 
+      <input type="file" onChange={handleImg} />
+
       <label htmlFor="start-date">Start Date</label>
-      <input type="date" id="start-date" onChange={handleChange} />
+      <input type="date" id="startDate" onChange={handleChange} />
 
       <label htmlFor="end-date">End Date</label>
-      <input type="date" id="end-date" onChange={handleChange} />
+      <input type="date" id="endDate" onChange={handleChange} />
 
       <label htmlFor="description">Description</label>
       <textarea id="description" onChange={handleChange}></textarea>
+
+      <label htmlFor="location">Location</label>
+      <input type="text" id="location" onChange={handleChange} />
 
       <button onClick={handleClick}>Create Event</button>
     </div>

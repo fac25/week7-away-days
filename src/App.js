@@ -43,34 +43,13 @@ function App() {
           <Route path="/" element={<Layout user={user} setUser={setUser} />}>
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/my-profile" element={<MyProfile />} />
-            <Route
-              path="/create-event"
-              element={<CreateEvent Events={Events} DataStore={DataStore} />}
-            />
+            <Route path="/my-profile" element={<MyProfile User={user} />} />
             <Route
               path="/current-event/:id"
               element={<CurrentEvent Events={Events} DataStore={DataStore} />}
             />
-            <Route
-              path="/create-accommodation"
-              element={
-                <CreateAccommodation
-                  Accommodation={Accommodation}
-                  DataStore={DataStore}
-                />
-              }
-            />
+             <Route path="/display-reviews" element={<DisplayReviews />} />
 
-            <Route path="/create-review" element={<CreateReview />} />
-            <Route path="/display-reviews" element={<DisplayReviews />} />
-
-            <Route
-              path="/create-profile"
-              element={
-                <CreateProfile Profile={Profile} DataStore={DataStore} />
-              }
-            />
             <Route
               path="/display-profile"
               element={
@@ -86,6 +65,38 @@ function App() {
             path="/authenticate"
             element={<Authenticate setUser={setUser} />}
           />
+
+          {/* Create */}
+          {user && (
+            <>
+              <Route
+                path="/create-event"
+                element={
+                  <CreateEvent
+                    User={user}
+                    Events={Events}
+                    DataStore={DataStore}
+                  />
+                }
+              />
+              <Route
+                path="/create-profile"
+                element={
+                  <CreateProfile Profile={Profile} DataStore={DataStore} />
+                }
+              />
+              <Route path="/create-review" element={<CreateReview />} />
+              <Route
+                path="/create-accommodation"
+                element={
+                  <CreateAccommodation
+                    Accommodation={Accommodation}
+                    DataStore={DataStore}
+                  />
+                }
+              />
+            </>
+          )}
         </Routes>
       </BrowserRouter>
       <Search />
