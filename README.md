@@ -1,7 +1,7 @@
 # In-house Project - Away Days
 ### By: Alex - Karwan - Patrick - Suraj
 
-Hosted on AWS [here](https://main.dw15sj5lzadq.amplifyapp.com/)
+Hosted on AWS [Away Days](https://main.dw15sj5lzadq.amplifyapp.com/)
 
 ## Setup: 
 
@@ -34,32 +34,32 @@ To run the server ```npm start```
 [i7]: https://github.com/fac25/week7-Away-Days/issues/7
 
 
-## Introduction 
+# Documentation 
 
 ### What are you building?
 
-It became apparent that there was a hole to be filled with platform to bring together sports fans. 
+- It became apparent that there was a hole to be filled with platform to bring together sports fans. 
 What if Couchsurfing met Meetup? This mashup is what we decided to build.
 
 ### Why are you building it?
 
-To make it easier for people to find tickets for sporting events with a place to stay. 
+- To make it easier for people to find tickets for sporting events with a place to stay. 
 
 ## Project scope 
 
 ### What are you not building?
 
-We're not building a complete copy of couchsurfing. 
+- We're not building a complete copy of couchsurfing. 
 
 ### How did you decide what features were important?
 
-We conducted user research using a lo-fi wireframe and flow. From user feedback and our website inspirations, we managed to determine what would be the core functionality and features for our website.
+- We conducted user research using a lo-fi wireframe and flow in Figma. From user feedback and our website inspirations, we managed to determine what would be the core functionality and features for our website.
 
 ## Project plan 
 
 ### How are you going to structure your sprints?
 
-We split our project idea into multiple features - features that will be used across the platform. Once those main features were identified we decided to work on them first.
+- We split our project idea into multiple features - features that will be used across the platform. Once those main features were identified we decided to work on them first.
 The features would be built in a self-contained environment to later bring them together.
 
 ### What order are you going to build in?
@@ -71,27 +71,41 @@ The features would be built in a self-contained environment to later bring them 
 
 ### How did user research inform your plan?
 
-We changed various aspects of each page, according to what our users told us. Thanks to the feedback received, it was brought to our attention that safety was a big factor in the product. How the users would interact with each other, how they would find out about each other before said interaction. Those became the priority for us - which was not the case before the user research.
+- We changed various aspects of each page, according to what our users told us. Thanks to the feedback received, it was brought to our attention that safety was a big factor in the product. How the users would interact with each other, how they would find out about each other before said interaction. Those became the priority for us - which was not the case before the user research.
 
 ## Requirement analysis 
 
 ### How will you ensure your project is accessible to as many users as possible?
 
+-
+
 ### Are there any legal or regulatory requirements you should consider?
+
+-
 
 ## Project learnings 
 
+- AWS Amplify, React, SASS
+
 ### Did your team work effectively?
 
+- Worked efficiently to build the components and features.
+
 ### What would you do differently next time?
+
+- Finish the feature functionality.
 
 ## Research and findings 
 
 ### What did you find out from user testing?
 
+- That reviews are very important and user bio.
+
 ## Project outcomes 
 
 ### Were your assumptions right or wrong?
+
+- 
 
 ## Recommendations and conclusions 
 
