@@ -29,7 +29,7 @@ function SearchBar({ results, setResults }) {
     <>
       <form>
         <h2>Search for your next experience</h2>
-        {fields.map(({ index, name, type, label, placeholder = "" }) => (
+        {fields.map(({ name, type, label, placeholder = "" }, index) => (
           <div key={index}>
             {errors[name] && <p style={{ color: "red" }}>{label} required</p>}
             <label htmlFor={name}>{label}</label>
