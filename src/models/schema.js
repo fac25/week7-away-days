@@ -125,8 +125,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "favouriteSport": {
-                    "name": "favouriteSport",
+                "favSports": {
+                    "name": "favSports",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -160,8 +160,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "profilepic": {
-                    "name": "profilepic",
+                "profilePic": {
+                    "name": "profilePic",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -417,5 +417,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.1",
-    "version": "1ad69245c9cacfdc3e98f5559b1e8b86"
+    "version": "353ec97679d679bf44e8d935d6a4fede"
 };
