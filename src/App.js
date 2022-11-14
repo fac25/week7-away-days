@@ -43,7 +43,7 @@ function App() {
           <Route path="/" element={<Layout user={user} setUser={setUser} />}>
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/my-profile" element={<MyProfile User={user} />} />
+            <Route path="/my-profile" element={<MyProfile user={user} />} />
             <Route
               path="/current-event/:id"
               element={<CurrentEvent Events={Events} DataStore={DataStore} />}
