@@ -18,6 +18,7 @@ export default function NavBar({ user, setUser }) {
 
         {user && (
           <>
+            <Link to="/my-profile">My Profile</Link>
             <Link to="/create-event">Create Event</Link>
             <button onClick={signOut}>Sign Out</button>
           </>
