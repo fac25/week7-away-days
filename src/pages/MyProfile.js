@@ -17,12 +17,12 @@ export default function MyProfile({ user }) {
     // If user does not exist exit the function
     if (!user) return;
 
-    const getProfileData = async function (Table, dataKey) {
+    const getProfileData = async function (Table, stateKey) {
       const data = await DataStore.query(Table, (item) =>
         item.UserID("eq", user.username)
       );
       setProfileData((prevData) => {
-        return { ...prevData, [dataKey]: data };
+        return { ...prevData, [stateKey]: data };
       });
     };
 
