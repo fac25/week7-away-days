@@ -125,6 +125,48 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "favouriteSport": {
+                    "name": "favouriteSport",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "whyOnAwayDays": {
+                    "name": "whyOnAwayDays",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "oneAmazingSportEvent": {
+                    "name": "oneAmazingSportEvent",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "pastEvents": {
+                    "name": "pastEvents",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "interests": {
+                    "name": "interests",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "profilepic": {
+                    "name": "profilepic",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -375,5 +417,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.1",
-    "version": "c2f87687257836eb621c6ad0df77dbb8"
+    "version": "1ad69245c9cacfdc3e98f5559b1e8b86"
 };
