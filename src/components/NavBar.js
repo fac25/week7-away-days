@@ -12,7 +12,7 @@ export default function NavBar({ user, setUser }) {
         {!user && (
           <>
             <Link to="/authenticate">Login</Link>
-            <Link to="/authenticate">Sign Up</Link>
+            <Link to="/authenticate" onClick={signUp}>Sign Up</Link>
           </>
         )}
 
@@ -26,6 +26,10 @@ export default function NavBar({ user, setUser }) {
       <Outlet />
     </div>
   );
+
+  function signUp (){
+    localStorage.setItem("signup", "signup")
+  }
 
   async function signOut() {
     try {
