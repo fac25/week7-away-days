@@ -36,19 +36,19 @@ const CreateProfile = () => {
       <label htmlFor="upload image">Upload image:</label>
       <input type="file" id="profileImg" onChange={handleChange} />
       <label htmlFor="about">About Me:</label>
-      <input type="text" id="about" onChange={handleChange} />
+      <textarea type="text" id="about" onChange={handleChange} />
       <label htmlFor="favouriteSports">Favourite sports:</label>
-      <input type="text" id="favouriteSports" onChange={handleChange} />
+      <textarea type="text" id="favouriteSports" onChange={handleChange} />
       <label htmlFor="why on away days">Why I'm on Away Days:</label>
-      <input type="text" id="why" onChange={handleChange} />
+      <textarea type="text" id="why" onChange={handleChange} />
       <label htmlFor="one amazing sporting event">
         One amazing sporting event I've been to:
       </label>
-      <input type="text" id="oneSportingEvent" onChange={handleChange} />
+      <textarea type="text" id="oneSportingEvent" onChange={handleChange} />
       <label htmlFor="past events">Events I've been to:</label>
-      <input type="text" id="pastEvents" onChange={handleChange} />
+      <textarea type="text" id="pastEvents" onChange={handleChange} />
       <label htmlFor="interests">Interests:</label>
-      <input type="text" id="interests" onChange={handleChange} />
+      <textarea type="text" id="interests" onChange={handleChange} />
       <button onClick={handleClick}>Create profile</button>
       <Link to="/">Skip</Link>
     </div>
