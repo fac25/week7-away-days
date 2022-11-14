@@ -98,7 +98,6 @@ function App() {
             </>
           )}
         </Routes>
-        <CreateProfile />
       </BrowserRouter>
       <Footer />
     </div>
