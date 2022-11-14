@@ -67,7 +67,7 @@ function App() {
           />
 
           {/* Create */}
-          {user && (
+          {/* {user && (
             <>
               <Route
                 path="/create-event"
@@ -96,7 +96,7 @@ function App() {
                 }
               />
             </>
-          )}
+          )} */}
         </Routes>
       </BrowserRouter>
       <Footer />
