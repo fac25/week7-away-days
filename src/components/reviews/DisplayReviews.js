@@ -3,24 +3,26 @@ import { FaStar } from "react-icons/fa";
 import { DataStore } from "@aws-amplify/datastore";
 import { Reviews } from "../../models";
 
-export default function DisplayReviews({ eventId }) {
-  const [reviewsApi, setReviewsApi] = useState([]);
+export default function DisplayReviews({ eventId, UserID }) {
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    async function fetchReviews() {
-      let awsReviews = await DataStore.query(Reviews, (item) =>
-        item.EventID("eq", eventId)
+    const getReviewData = async function (key, value) {
+      const reviewData = await DataStore.query(Reviews, (item) =>
+        item[key]("eq", value)
       );
-      setReviewsApi(awsReviews);
-    }
-    const fetchInterval = setInterval(fetchReviews, 1000);
-    return () => clearInterval(fetchInterval);
-  });
+      setReviews(reviewData);
+    };
+
+    UserID
+      ? getReviewData("UserID", UserID)
+      : getReviewData("eventId", eventId);
+  }, [eventId, UserID]);
 
   return (
     <div>
-      {reviewsApi ? (
-        reviewsApi.map((review, index) => {
+      {reviews ? (
+        reviews.map((review, index) => {
           return (
             <ul key={index}>
               <li>{review.name}</li>
