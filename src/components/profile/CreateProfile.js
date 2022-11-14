@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const CreateProfile = () => {
   const navigate = useNavigate();
+  localStorage.removeItem("signup"); 
 
   const [profile, setProfile] = useState();
 
