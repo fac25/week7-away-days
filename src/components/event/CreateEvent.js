@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const CreateEvent = ({ User, Events, DataStore }) => {
   const [createEvent, setCreateEvent] = useState();
+  const [checkDate, setCheckDate] = useState(false);
 
   // Img
   const [img, setImg] = useState("");
@@ -11,6 +12,7 @@ const CreateEvent = ({ User, Events, DataStore }) => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    setCheckDate(false);
     setCreateEvent((prveState) => {
       return { ...prveState, ...{ [e.target.id]: e.target.value } };
     });
@@ -19,23 +21,28 @@ const CreateEvent = ({ User, Events, DataStore }) => {
   const imgKey = img + User.username;
 
   const handleClick = async () => {
-    await DataStore.save(
-      new Events({
-        name: createEvent.name,
-        sport: createEvent.sport,
-        img: imgKey,
-        startDate: createEvent.startDate,
-        endDate: createEvent.endDate,
-        description: createEvent.description,
-        location: createEvent.location,
-        UserID: User.username,
-      })
-    );
+    if (createEvent.endDate >= createEvent.startDate) {
+      setCheckDate(false)
+      await DataStore.save(
+        new Events({
+          name: createEvent.name,
+          sport: createEvent.sport,
+          img: imgKey,
+          startDate: createEvent.startDate,
+          endDate: createEvent.endDate,
+          description: createEvent.description,
+          location: createEvent.location,
+          UserID: User.username,
+        })
+      );
+    }else(
+      setCheckDate(true)
+    )
 
     // const event = await DataStore.query(Events);
     // console.log(JSON.parse(localStorage.getItem("user")));
 
-    navigate("/my-profile");
+    // navigate("/my-profile");
   };
 
   // Img
@@ -63,8 +70,11 @@ const CreateEvent = ({ User, Events, DataStore }) => {
       <label htmlFor="start-date">Start Date</label>
       <input type="date" id="startDate" onChange={handleChange} />
 
-      <label htmlFor="end-date">End Date</label>
-      <input type="date" id="endDate" onChange={handleChange} />
+      <div>
+        <label htmlFor="end-date">End Date</label>
+        <input type="date" id="endDate" onChange={handleChange} />
+        {checkDate ? <p>end date should be after start date</p> : <></>}
+      </div>
 
       <label htmlFor="description">Description</label>
       <textarea id="description" onChange={handleChange}></textarea>
