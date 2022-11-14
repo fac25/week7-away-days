@@ -52,6 +52,12 @@ type EagerProfile = {
   readonly UserID?: string | null;
   readonly name?: string | null;
   readonly lastName?: string | null;
+  readonly favSports?: string | null;
+  readonly whyOnAwayDays?: string | null;
+  readonly oneAmazingSportEvent?: string | null;
+  readonly pastEvents?: string | null;
+  readonly interests?: string | null;
+  readonly profilePic?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -62,6 +68,12 @@ type LazyProfile = {
   readonly UserID?: string | null;
   readonly name?: string | null;
   readonly lastName?: string | null;
+  readonly favSports?: string | null;
+  readonly whyOnAwayDays?: string | null;
+  readonly oneAmazingSportEvent?: string | null;
+  readonly pastEvents?: string | null;
+  readonly interests?: string | null;
+  readonly profilePic?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
