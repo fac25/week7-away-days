@@ -4,6 +4,7 @@ import { DataStore } from "@aws-amplify/datastore";
 import { Profile } from "../../models";
 import { useNavigate } from "react-router-dom";
 import UploadImg from "../UploadImg";
+import Image from '../Image'
 
 const CreateProfile = () => {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ const CreateProfile = () => {
     <div>
       <h1>Create Profile</h1>
       <UploadImg updateFileName={setProfileImg} />
+      <Image dbFileName={profileImg} />
       <label htmlFor="about">About Me:</label>
       <textarea type="text" id="about" onChange={handleChange} />
       <label htmlFor="favouriteSports">Favourite sports:</label>
