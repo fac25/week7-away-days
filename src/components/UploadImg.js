@@ -5,7 +5,7 @@ export default function UploadImg({ updateFileName }) {
   async function onChange(e) {
     const file = e.target.files[0];
     const fileName = file.name + `${Date.now().toString()}`
-    await Storage.put(file.name + `${Date.now().toString()}`, file);
+    await Storage.put(fileName, file);
 
     updateFileName(fileName);
   }
