@@ -1,16 +1,16 @@
 import { Storage } from "aws-amplify";
 import React, { useEffect, useState } from "react";
 
-function Image({ dbFileName, alt = "" }) {
+function Image({ src, alt = "" }) {
   const [fileURL, setFileURL] = useState();
   useEffect(() => {
     (async function () {
-      const fileAccessURL = await Storage.get(dbFileName, {
+      const fileAccessURL = await Storage.get(src, {
         expires: 60
       });
       setFileURL(fileAccessURL);
     })();
-  }, [dbFileName]);
+  }, [src]);
 
   return <img src={fileURL} alt={alt} />;
 }
