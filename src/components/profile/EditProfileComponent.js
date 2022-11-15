@@ -3,11 +3,13 @@ import { useState } from "react";
 import { Profile } from "../../models";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import UploadImg from "../UploadImg";
 
 export default function EditProfileComponent({ user }) {
   const navigate = useNavigate();
 
   const [profile, setProfile] = useState();
+  const [profileImg, setProfileImg] = useState("");
 
   const handleChange = (e) => {
     setProfile((prevState) => {
@@ -31,7 +33,7 @@ export default function EditProfileComponent({ user }) {
         updated.oneAmazingSportEvent = profile.oneSportingEvent;
         updated.pastEvents = profile.pastEvents;
         updated.interests = profile.interests;
-        updated.profilePic = profile.profileImg;
+        updated.profilePic = profileImg;
       })
     );
     navigate("/");
@@ -41,8 +43,9 @@ export default function EditProfileComponent({ user }) {
     <div>
       <h1>Edit Profile</h1>
 
-      <label htmlFor="upload image">Upload image:</label>
-      <input type="file" id="profileImg" onChange={handleChange} />
+      <UploadImg updateFileName={setProfileImg} />
+      {/* <label htmlFor="upload image">Upload image:</label>
+      <input type="file" id="profileImg" onChange={handleChange} /> */}
 
       <input type="text" id="name" onChange={handleChange} />
       <label htmlFor="name">name:</label>
