@@ -45,11 +45,11 @@ export default function EditProfileComponent({ user }) {
 
       <UploadImg updateFileName={setProfileImg} />
 
-      <input type="text" id="name" onChange={handleChange} />
       <label htmlFor="name">name:</label>
+      <input type="text" id="name" onChange={handleChange} />
 
-      <input type="text" id="lastName" onChange={handleChange} />
       <label htmlFor="lastName">last Name:</label>
+      <input type="text" id="lastName" onChange={handleChange} />
 
       <label htmlFor="about">About Me:</label>
       <textarea type="text" id="about" onChange={handleChange} />

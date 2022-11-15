@@ -14,7 +14,6 @@ import Contact from "./pages/Contact.js";
 import MyProfile from "./pages/MyProfile.js";
 import Email from "./components/Email";
 import Footer from "./components/Footers.js";
-import LandingPage from "./pages/LandingPage.js";
 import Search from "./pages/Search.js";
 
 import CreateEvent from "./components/event/CreateEvent";
@@ -42,7 +41,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Start of layout route */}
-          <Route path="/" element={<Layout user={user} setUser={setUser} />}>
+          <Route
+            path="/"
+            element={
+              <Layout user={user} setUser={setUser} element={<Search />} />
+            }
+          >
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
             <Route
@@ -66,16 +70,16 @@ function App() {
             <Route path="/search" element={<Search />} />
           </Route>
           {/* End of Layout route */}
-          <Route path="/landing-page" element={<LandingPage />} />
-          <Route
-            path="/authenticate"
-            element={<Authenticate setUser={setUser} />}
-          />
-
+          <>
+            <Route
+              path="/authenticate"
+              element={<Authenticate setUser={setUser} />}
+            />
+          </>
           {/* Create */}
           {user && (
             <>
-            <Route path="/my-profile" element={<MyProfile user={user} />} />
+              <Route path="/my-profile" element={<MyProfile user={user} />} />
               <Route
                 path="/create-event"
                 element={
@@ -89,10 +93,17 @@ function App() {
               <Route
                 path="/create-profile"
                 element={
-                  <CreateProfile Profile={Profile} DataStore={DataStore}  user={user}/>
+                  <CreateProfile
+                    Profile={Profile}
+                    DataStore={DataStore}
+                    user={user}
+                  />
                 }
               />
-              <Route path="/create-review" element={<CreateReview user={user}/>} />
+              <Route
+                path="/create-review"
+                element={<CreateReview user={user} />}
+              />
               <Route
                 path="/create-accommodation"
                 element={
