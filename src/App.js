@@ -43,7 +43,6 @@ function App() {
           <Route path="/" element={<Layout user={user} setUser={setUser} />}>
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/my-profile" element={<MyProfile user={user} />} />
             <Route
               path="/current-event/:id"
               element={<CurrentEvent Events={Events} DataStore={DataStore} />}
@@ -69,6 +68,7 @@ function App() {
           {/* Create */}
           {user && (
             <>
+            <Route path="/my-profile" element={<MyProfile user={user} />} />
               <Route
                 path="/create-event"
                 element={
@@ -82,16 +82,17 @@ function App() {
               <Route
                 path="/create-profile"
                 element={
-                  <CreateProfile Profile={Profile} DataStore={DataStore} />
+                  <CreateProfile Profile={Profile} DataStore={DataStore}  user={user}/>
                 }
               />
-              <Route path="/create-review" element={<CreateReview />} />
+              <Route path="/create-review" element={<CreateReview user={user}/>} />
               <Route
                 path="/create-accommodation"
                 element={
                   <CreateAccommodation
                     Accommodation={Accommodation}
                     DataStore={DataStore}
+                    user={user}
                   />
                 }
               />

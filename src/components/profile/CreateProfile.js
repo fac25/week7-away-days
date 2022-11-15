@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import UploadImg from "../UploadImg";
 import Image from '../Image'
 
-const CreateProfile = () => {
+const CreateProfile = ({user}) => {
   const navigate = useNavigate();
   localStorage.removeItem("signup");
 
@@ -29,6 +29,9 @@ const CreateProfile = () => {
         oneAmazingSportEvent: profile.oneSportingEvent,
         pastEvents: profile.pastEvents,
         interests: profile.interests,
+        name:user.attributes.name,
+        lastName: user.attributes.family_name,
+        UserID: user.username
       })
     );
     navigate("/");
