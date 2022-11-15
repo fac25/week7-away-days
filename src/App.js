@@ -28,6 +28,7 @@ import CreateProfile from "./components/profile/CreateProfile";
 import DisplayProfile from "./components/profile/DisplayProfile";
 
 import EditProfile from "./pages/EditProfile";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -82,13 +83,14 @@ function App() {
               <Route path="/my-profile" element={<MyProfile user={user} />} />
               <Route
                 path="/create-event"
-                element={
+                element={[
+                  <NavBar user={user} setUser={setUser} />,
                   <CreateEvent
                     User={user}
                     Events={Events}
                     DataStore={DataStore}
-                  />
-                }
+                  />,
+                ]}
               />
               <Route
                 path="/create-profile"
