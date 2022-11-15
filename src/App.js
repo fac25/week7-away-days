@@ -28,6 +28,8 @@ import DisplayReviews from "./components/reviews/DisplayReviews";
 import CreateProfile from "./components/profile/CreateProfile";
 import DisplayProfile from "./components/profile/DisplayProfile";
 
+import EditProfile from "./pages/EditProfile";
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -43,6 +45,11 @@ function App() {
           <Route path="/" element={<Layout user={user} setUser={setUser} />}>
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/my-profile/edit-profile"
+              element={<EditProfile user={user} />}
+            />
+
             <Route
               path="/current-event/:id"
               element={<CurrentEvent Events={Events} DataStore={DataStore} />}
