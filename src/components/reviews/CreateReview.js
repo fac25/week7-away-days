@@ -4,30 +4,28 @@ import { useState } from "react";
 import { DataStore } from "@aws-amplify/datastore";
 import { Reviews } from "../../models";
 
-const CreateReview = () => {
-  const [name, setName] = useState("");
-  const [rating, setRating] = useState();
-  const [description, setDescription] = useState("");
+const CreateReview = ({ EventID, UserID, setReviews }) => {
+  const [currentReview, setCurrentReview] = useState({
+    name: "",
+    rating: "",
+    description: ""
+  });
 
-  const handleChange = (e) => {
-    if (e.target.id === "name") {
-      setName(e.target.value);
-    }
-    if (e.target.id === "rating") {
-      setRating(e.target.value);
-    }
-
-    if (e.target.id === "description") {
-      setDescription(e.target.value);
-    }
+  const handleChange = ({ target }) => {
+    setCurrentReview((prevObj) => {
+      return { ...prevObj, [target.id]: target.value };
+    });
   };
 
   const handleClick = async () => {
+    setReviews((prevReviews) => [...prevReviews, currentReview]);
     await DataStore.save(
       new Reviews({
-        name: name,
-        rating: parseInt(rating),
-        description: description,
+        name: currentReview.name,
+        rating: parseInt(currentReview.rating),
+        description: currentReview.description,
+        EventID,
+        UserID
       })
     );
   };
