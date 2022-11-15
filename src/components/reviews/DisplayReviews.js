@@ -16,7 +16,7 @@ export default function DisplayReviews({ eventId, UserID }) {
 
     UserID
       ? getReviewData("UserID", UserID)
-      : getReviewData("eventId", eventId);
+      : getReviewData("EventID", eventId);
   }, [eventId, UserID]);
 
   return (
