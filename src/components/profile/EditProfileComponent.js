@@ -44,8 +44,6 @@ export default function EditProfileComponent({ user }) {
       <h1>Edit Profile</h1>
 
       <UploadImg updateFileName={setProfileImg} />
-      {/* <label htmlFor="upload image">Upload image:</label>
-      <input type="file" id="profileImg" onChange={handleChange} /> */}
 
       <input type="text" id="name" onChange={handleChange} />
       <label htmlFor="name">name:</label>
