@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { Accommodation } from "../../models";
 import { DataStore } from "aws-amplify";
-import Image from '../Image'
+import Image from "../Image";
 
-const DisplayAccommodation = ({ eventId }) => {
+const DisplayAccommodation = ({ EventID }) => {
   const [accommodation, setAccommodation] = useState();
 
   useEffect(() => {
     const getAccommodation = async () => {
       const accommodation = await DataStore.query(Accommodation, (item) =>
-        item.EventID("eq", eventId)
+        item.EventID("eq", EventID)
       );
       setAccommodation(accommodation[0]);
     };
@@ -24,7 +24,11 @@ const DisplayAccommodation = ({ eventId }) => {
         <div className="card">
           <h3>{accommodation.location}</h3>
           {accommodation.img.map((image, index) => (
-            <Image key={`accommodation-image[${index}]`} src={image} alt="test" />
+            <Image
+              key={`accommodation-image[${index}]`}
+              src={image}
+              alt="test"
+            />
           ))}
           <p>Accommodation Description: {accommodation.description}</p>
           <p>Facilities: {accommodation.facilities?.join(", ")}</p>
