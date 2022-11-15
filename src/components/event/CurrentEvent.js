@@ -3,6 +3,7 @@ import DisplayAcommodation from "../accommodation/DisplayAccommodation";
 import DisplayReviews from "../reviews/DisplayReviews";
 import { Events } from "../../models";
 import { DataStore } from "aws-amplify";
+import Image from "../Image";
 
 const CurrentEvent = () => {
   const [currentEvent, setCurrentEvent] = useState({});
@@ -28,7 +29,7 @@ const CurrentEvent = () => {
           <span>{startDate}</span>
           <span>{endDate}</span>
         </div>
-        <img src={img} alt="test" />
+        <Image src={img} alt="test" />
         <p>{description}</p>
         <DisplayAcommodation eventId={id} />
         <DisplayReviews eventId={id} />

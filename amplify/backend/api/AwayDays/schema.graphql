@@ -25,7 +25,7 @@ type Accommodation @model @auth(rules: [{allow: public}]) {
   id: ID!
   location: String
   description: String
-  img: [AWSURL]
+  img: [String]
   facilities: [String]
   UserID: String
   EventID: String

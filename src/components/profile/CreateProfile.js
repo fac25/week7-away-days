@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import { DataStore } from "@aws-amplify/datastore";
 import { Profile } from "../../models";
 import { useNavigate } from "react-router-dom";
+import UploadImg from "../UploadImg";
+import Image from '../Image'
 
 const CreateProfile = () => {
   const navigate = useNavigate();
-  localStorage.removeItem("signup"); 
+  localStorage.removeItem("signup");
 
   const [profile, setProfile] = useState();
+  const [profileImg, setProfileImg] = useState("");
 
   const handleChange = (e) => {
     setProfile((prevState) => {
@@ -19,7 +22,7 @@ const CreateProfile = () => {
   const handleClick = async () => {
     await DataStore.save(
       new Profile({
-        profilePic: profile.profileImg,
+        profilePic: profileImg,
         about: profile.about,
         favSports: profile.favouriteSports,
         whyOnAwayDays: profile.why,
@@ -34,8 +37,8 @@ const CreateProfile = () => {
   return (
     <div>
       <h1>Create Profile</h1>
-      <label htmlFor="upload image">Upload image:</label>
-      <input type="file" id="profileImg" onChange={handleChange} />
+      <UploadImg updateFileName={setProfileImg} />
+      <Image src={profileImg} />
       <label htmlFor="about">About Me:</label>
       <textarea type="text" id="about" onChange={handleChange} />
       <label htmlFor="favouriteSports">Favourite sports:</label>
