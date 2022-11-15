@@ -1,7 +1,8 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import { Auth } from "aws-amplify";
 
 export default function NavBar({ user, setUser }) {
+  const navigate = useNavigate()
   return (
     <div>
       <nav>
@@ -37,6 +38,7 @@ export default function NavBar({ user, setUser }) {
       setUser(null);
       localStorage.clear();
       await Auth.signOut();
+      navigate('/');
     } catch (error) {
       console.log("error signing out: ", error);
     }
