@@ -4,6 +4,7 @@ import { DataStore } from "aws-amplify";
 import { Profile, Events } from "../models";
 import DisplayReviews from "../components/reviews/DisplayReviews";
 import Results from "../components/Results";
+import Image from "../components/Image";
 
 // ------------------------------------ MyProfile
 export default function MyProfile({ user }) {
@@ -36,7 +37,7 @@ export default function MyProfile({ user }) {
 
       {profile && (
         <>
-          <img
+          <Image
             src={profile.profilePic}
             style={{ width: 200, height: 100 }}
             alt=""

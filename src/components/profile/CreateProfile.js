@@ -38,7 +38,7 @@ const CreateProfile = () => {
     <div>
       <h1>Create Profile</h1>
       <UploadImg updateFileName={setProfileImg} />
-      <Image dbFileName={profileImg} />
+      <Image src={profileImg} />
       <label htmlFor="about">About Me:</label>
       <textarea type="text" id="about" onChange={handleChange} />
       <label htmlFor="favouriteSports">Favourite sports:</label>

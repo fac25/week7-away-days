@@ -236,7 +236,7 @@ export const schema = {
                 "img": {
                     "name": "img",
                     "isArray": true,
-                    "type": "AWSURL",
+                    "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
@@ -417,5 +417,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.1",
-    "version": "353ec97679d679bf44e8d935d6a4fede"
+    "version": "7b1fb656f07b94916e420f3e3f493e50"
 };
