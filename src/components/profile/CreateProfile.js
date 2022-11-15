@@ -4,9 +4,9 @@ import { DataStore } from "@aws-amplify/datastore";
 import { Profile } from "../../models";
 import { useNavigate } from "react-router-dom";
 import UploadImg from "../UploadImg";
-import Image from '../Image'
+import Image from "../Image";
 
-const CreateProfile = ({user}) => {
+const CreateProfile = ({ user }) => {
   const navigate = useNavigate();
   localStorage.removeItem("signup");
 
@@ -29,7 +29,7 @@ const CreateProfile = ({user}) => {
         oneAmazingSportEvent: profile.oneSportingEvent,
         pastEvents: profile.pastEvents,
         interests: profile.interests,
-        name:user.attributes.name,
+        name: user.attributes.name,
         lastName: user.attributes.family_name,
         UserID: user.username
       })
