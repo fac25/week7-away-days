@@ -4,35 +4,43 @@ import DisplayReviews from "../reviews/DisplayReviews";
 import { Events } from "../../models";
 import { DataStore } from "aws-amplify";
 import Image from "../Image";
+import CreateReview from "../reviews/CreateReview";
 
 const CurrentEvent = () => {
   const [currentEvent, setCurrentEvent] = useState({});
-  const { name, sport, startDate, location, endDate, description, img, id } =
-    currentEvent;
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    const getCurrentEvents = async () => {
+    (async function () {
       const eventIdFromUrl = window.location.pathname.split("/").pop();
       const event = await DataStore.query(Events, eventIdFromUrl);
       setCurrentEvent(event);
-    };
-    getCurrentEvents();
+    })();
   }, []);
 
   return (
     currentEvent && (
       <div>
-        <h2>{name}</h2>
-        <h3>{sport}</h3>
-        <p>{location}</p>
+        <h2>{currentEvent.name}</h2>
+        <h3>{currentEvent.sport}</h3>
+        <p>{currentEvent.location}</p>
         <div>
-          <span>{startDate}</span>
-          <span>{endDate}</span>
+          <span>{currentEvent.startDate}</span>
+          <span>{currentEvent.endDate}</span>
         </div>
-        <Image src={img} alt="test" />
-        <p>{description}</p>
-        <DisplayAcommodation eventId={id} />
-        <DisplayReviews eventId={id} />
+        <Image src={currentEvent.img} alt="test" />
+        <p>{currentEvent.description}</p>
+        <DisplayAcommodation EventID={currentEvent.id} />
+        <CreateReview
+          setReviews={setReviews}
+          EventID={currentEvent.id}
+          UserID={currentEvent.UserID}
+        />
+        <DisplayReviews
+          reviews={reviews}
+          setReviews={setReviews}
+          EventID={currentEvent.id}
+        />
       </div>
     )
   );

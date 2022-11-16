@@ -22,7 +22,7 @@ const CreateEvent = ({ User, Events, DataStore }) => {
 
   const handleClick = async () => {
     if (createEvent.endDate >= createEvent.startDate) {
-      setCheckDate(false)
+      setCheckDate(false);
       await DataStore.save(
         new Events({
           name: createEvent.name,
@@ -35,14 +35,9 @@ const CreateEvent = ({ User, Events, DataStore }) => {
           UserID: User.username,
         })
       );
-    }else(
-      setCheckDate(true)
-    )
+    } else setCheckDate(true);
 
-    // const event = await DataStore.query(Events);
-    // console.log(JSON.parse(localStorage.getItem("user")));
-
-    // navigate("/my-profile");
+    navigate("/my-profile");
   };
 
   // Img
