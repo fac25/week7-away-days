@@ -1,8 +1,22 @@
 import formatDate from "../utils";
 import { Link } from "react-router-dom";
 import Image from "./Image";
+import { Events } from "../models";
+import { DataStore } from "aws-amplify";
+import { useState, useEffect } from "react";
 
 export default function Results({ results }) {
+  // All Events Data Array
+  const [eventsData, setEventsData] = useState([]);
+  useEffect(() => {
+    const awsEventData = async function () {
+      const awsEvents = await DataStore.query(Events);
+      setEventsData(awsEvents);
+    };
+
+    awsEventData();
+  }, []);
+
   return (
     <div>
       {results ? (
@@ -12,7 +26,10 @@ export default function Results({ results }) {
           <p>No events found...</p>
         )
       ) : (
-        ""
+        <>
+          <h2>Events</h2>
+          <ResultCards results={eventsData} />
+        </>
       )}
     </div>
   );
