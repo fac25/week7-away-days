@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import DisplayAcommodation from "../accommodation/DisplayAccommodation";
 import DisplayReviews from "../reviews/DisplayReviews";
-import { Events } from "../../models";
+import { Events, Profile } from "../../models";
 import { DataStore } from "aws-amplify";
 import Image from "../Image";
 import CreateReview from "../reviews/CreateReview";
+import { Link } from "react-router-dom";
 
 const CurrentEvent = () => {
   const [currentEvent, setCurrentEvent] = useState({});
   const [reviews, setReviews] = useState([]);
+  const [profileData, setProfileData] = useState([]);
 
   useEffect(() => {
     (async function () {
@@ -18,9 +20,26 @@ const CurrentEvent = () => {
     })();
   }, []);
 
+  // Find Profile
+  const userProfileID = currentEvent.UserID;
+
+  useEffect(() => {
+    const getProfileData = async function () {
+      const data = await DataStore.query(Profile, (item) =>
+        item.UserID("eq", userProfileID)
+      );
+      setProfileData(data);
+    };
+    getProfileData();
+  }, [userProfileID]);
+
+  const hostData = profileData[0];
+  console.log(hostData);
+
   return (
     currentEvent && (
       <div>
+        {hostData && <ProfileLink hostData={hostData} />}
         <h2>{currentEvent.name}</h2>
         <h3>{currentEvent.sport}</h3>
         <p>{currentEvent.location}</p>
@@ -45,5 +64,14 @@ const CurrentEvent = () => {
     )
   );
 };
+
+function ProfileLink({ hostData }) {
+  return (
+    <Link to={`/display-profile/${hostData.id}`}>
+      <Image src={hostData.profilePic} />
+      <h2>{hostData.name + " " + hostData.lastName}</h2>
+    </Link>
+  );
+}
 
 export default CurrentEvent;
