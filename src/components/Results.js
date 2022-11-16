@@ -3,14 +3,19 @@ import { Link } from "react-router-dom";
 import Image from "./Image";
 import { Events } from "../models";
 import { DataStore } from "aws-amplify";
+import { useState, useEffect } from "react";
 
 export default function Results({ results }) {
-  async function awsEventData() {
-    let awsEvents = await DataStore.query(Events);
-    console.log(awsEvents[0].name);
+  // All Events Data Array
+  const [eventsData, setEventsData] = useState([]);
+  useEffect(() => {
+    const awsEventData = async function () {
+      const awsEvents = await DataStore.query(Events);
+      setEventsData(awsEvents);
+    };
 
-    return <h4>{awsEvents[0].name}</h4>;
-  }
+    awsEventData();
+  }, []);
 
   return (
     <div>
@@ -22,8 +27,8 @@ export default function Results({ results }) {
         )
       ) : (
         <>
-          <h1>Results</h1>
-          <button onClick={awsEventData}>Log Events</button>
+          <h2>Events</h2>
+          <ResultCards results={eventsData} />
         </>
       )}
     </div>
