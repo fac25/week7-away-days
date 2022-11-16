@@ -12,7 +12,7 @@ const CreateAccommodation = ({ setAccommodation }) => {
 
   const handleChange = ({ target }) => {
     setAccommodation((prevObj) => {
-      return { ...prevObj, [target.id]: target.vlue };
+      return { ...prevObj, [target.id]: target.value };
     });
   };
 

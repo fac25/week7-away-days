@@ -6,18 +6,15 @@ import { DataStore } from "aws-amplify";
 import CreateAccommodation from "../accommodation/CreateAccommodation";
 
 const CreateEvent = ({ User }) => {
+  const navigate = useNavigate();
   const [createEvent, setCreateEvent] = useState();
   const [checkDate, setCheckDate] = useState(false);
+  const [eventImg, setEventImg] = useState("");
   const [accommodation, setAccommodation] = useState({
     location: "",
     facilities: "",
     description: ""
   });
-
-  // Img
-  const [eventImg, setEventImg] = useState("");
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCheckDate(false);
@@ -48,12 +45,12 @@ const CreateEvent = ({ User }) => {
           location: accommodation.location,
           facilities: accommodation.facilities,
           description: accommodation.description,
+          img: accommodation.img,
           EventID: newEvent.id,
           UserID: newEvent.UserID
         })
       );
     } else setCheckDate(true);
-
     navigate("/my-profile");
   };
 
