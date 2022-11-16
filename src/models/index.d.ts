@@ -88,10 +88,10 @@ type EagerAccommodation = {
   readonly id: string;
   readonly location?: string | null;
   readonly description?: string | null;
-  readonly img?: (string | null)[] | null;
-  readonly facilities?: (string | null)[] | null;
   readonly UserID?: string | null;
   readonly EventID?: string | null;
+  readonly facilities?: string | null;
+  readonly img?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -100,10 +100,10 @@ type LazyAccommodation = {
   readonly id: string;
   readonly location?: string | null;
   readonly description?: string | null;
-  readonly img?: (string | null)[] | null;
-  readonly facilities?: (string | null)[] | null;
   readonly UserID?: string | null;
   readonly EventID?: string | null;
+  readonly facilities?: string | null;
+  readonly img?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

@@ -1,29 +1,34 @@
 import { useState } from "react";
 import { Storage } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
+import { Accommodation, Events } from "../../models";
+import { DataStore } from "aws-amplify";
+import CreateAccommodation from "../accommodation/CreateAccommodation";
 
-const CreateEvent = ({ User, Events, DataStore }) => {
+const CreateEvent = ({ User }) => {
+  const navigate = useNavigate();
   const [createEvent, setCreateEvent] = useState();
   const [checkDate, setCheckDate] = useState(false);
-
-  // Img
-  const [img, setImg] = useState("");
-
-  const navigate = useNavigate();
+  const [eventImg, setEventImg] = useState("");
+  const [accommodation, setAccommodation] = useState({
+    location: "",
+    facilities: "",
+    description: ""
+  });
 
   const handleChange = (e) => {
     setCheckDate(false);
-    setCreateEvent((prveState) => {
-      return { ...prveState, ...{ [e.target.id]: e.target.value } };
+    setCreateEvent((prevState) => {
+      return { ...prevState, ...{ [e.target.id]: e.target.value } };
     });
   };
 
-  const imgKey = img + User.username;
+  const imgKey = eventImg + User.username;
 
   const handleClick = async () => {
     if (createEvent.endDate >= createEvent.startDate) {
       setCheckDate(false);
-      await DataStore.save(
+      const newEvent = await DataStore.save(
         new Events({
           name: createEvent.name,
           sport: createEvent.sport,
@@ -32,18 +37,27 @@ const CreateEvent = ({ User, Events, DataStore }) => {
           endDate: createEvent.endDate,
           description: createEvent.description,
           location: createEvent.location,
-          UserID: User.username,
+          UserID: User.username
+        })
+      );
+      await DataStore.save(
+        new Accommodation({
+          location: accommodation.location,
+          facilities: accommodation.facilities,
+          description: accommodation.description,
+          img: accommodation.img,
+          EventID: newEvent.id,
+          UserID: newEvent.UserID
         })
       );
     } else setCheckDate(true);
-
     navigate("/my-profile");
   };
 
   // Img
   async function handleImg(e) {
     const file = e.target.files[0];
-    setImg(file.name + `${Date.now().toString()}`);
+    setEventImg(file.name + `${Date.now().toString()}`);
 
     await Storage.put(
       file.name + `${Date.now().toString()}` + User.username,
@@ -76,6 +90,8 @@ const CreateEvent = ({ User, Events, DataStore }) => {
 
       <label htmlFor="location">Location</label>
       <input type="text" id="location" onChange={handleChange} />
+
+      <CreateAccommodation setAccommodation={setAccommodation} />
 
       <button onClick={handleClick}>Create Event</button>
     </div>

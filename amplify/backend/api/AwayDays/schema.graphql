@@ -25,10 +25,10 @@ type Accommodation @model @auth(rules: [{allow: public}]) {
   id: ID!
   location: String
   description: String
-  img: [String]
-  facilities: [String]
   UserID: String
   EventID: String
+  facilities: String
+  img: String
 }
 
 type Events @model @auth(rules: [{allow: public}]) {

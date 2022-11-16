@@ -1,31 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import UploadImg from "../UploadImg";
 
-const CreateAccommodation = ({Accommodation, DataStore}) => {
-  const [location, setLocation] = useState();
-  const [description, setDescription] = useState();
-  const [facilities, setFacilities] = useState([]);
+const CreateAccommodation = ({ setAccommodation }) => {
+  const [imageFileName, setImageFileName] = useState("");
 
-  const handleChange = (e) => {
-    if (e.target.id === "location") {
-      setLocation(e.target.value);
-    }
-    if (e.target.id === "facilities") {
-      const arrayFacilities = e.target.value.split(",")
-      setFacilities(arrayFacilities);
-    }
-    if (e.target.id === "description") {
-      setDescription(e.target.value);
-    }
-  };
+  useEffect(() => {
+    setAccommodation((prevObj) => {
+      return { ...prevObj, img: imageFileName };
+    });
+  }, [imageFileName]);
 
-  const handleClick = async () => {
-    await DataStore.save(
-      new Accommodation({
-        location: location,
-        facilities: facilities,
-        description: description,
-      })
-    );
+  const handleChange = ({ target }) => {
+    setAccommodation((prevObj) => {
+      return { ...prevObj, [target.id]: target.value };
+    });
   };
 
   return (
@@ -39,8 +27,7 @@ const CreateAccommodation = ({Accommodation, DataStore}) => {
 
       <label htmlFor="description">Description</label>
       <textarea id="description" onChange={handleChange}></textarea>
-
-      <button onClick={handleClick}>Create Accommodation</button>
+      <UploadImg updateFileName={setImageFileName} />
     </div>
   );
 };

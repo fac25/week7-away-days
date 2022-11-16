@@ -233,22 +233,6 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "img": {
-                    "name": "img",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
-                "facilities": {
-                    "name": "facilities",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
                 "UserID": {
                     "name": "UserID",
                     "isArray": false,
@@ -258,6 +242,20 @@ export const schema = {
                 },
                 "EventID": {
                     "name": "EventID",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "facilities": {
+                    "name": "facilities",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "img": {
+                    "name": "img",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -417,5 +415,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.1",
-    "version": "7b1fb656f07b94916e420f3e3f493e50"
+    "version": "06a538e53df9d94f9092bb1efc969c57"
 };
