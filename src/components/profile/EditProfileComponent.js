@@ -18,7 +18,6 @@ export default function EditProfileComponent({ user }) {
       const profileValues = await DataStore.query(Profile, (item) =>
         item.UserID("eq", currentUser.username)
       );
-      console.log(profileValues);
       setValues(profileValues[0]);
     }
     getCurrentValues();
