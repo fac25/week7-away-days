@@ -42,10 +42,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Start of layout route */}
-          <Route
-            path="/"
-            element={[<Layout user={user} setUser={setUser} />, <Search />]}
-          >
+          <Route path="/" element={<Layout user={user} setUser={setUser} />}>
+            <Route path="/" element={<Search />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
             <Route
