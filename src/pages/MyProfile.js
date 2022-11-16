@@ -47,7 +47,7 @@ export default function MyProfile({ user }) {
           <h2>{profile.name + " " + profile.lastName}</h2>
           <section>
             <h2>Profile</h2>
-            <Link to="./edit-profile">Edit</Link>
+            <Link to="/my-profile/edit-profile">Edit</Link>
 
             <h5>About me:</h5>
             <p>{profile.about}</p>
