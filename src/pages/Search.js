@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar";
 export default function Search() {
   const [results, setResults] = useState();
   return (
-    <div>
+    <div className="search">
       <SearchBar results={results} setResults={setResults} />
       <Results results={results} />
     </div>

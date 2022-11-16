@@ -1,7 +1,7 @@
 const Footer = () => {
-  return <div>
+  return <footer>
     <p>Away Days &#169; 2022 </p>
-  </div>;
+  </footer>;
 };
 
 export default Footer;
