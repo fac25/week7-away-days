@@ -6,12 +6,12 @@ function SearchBar({ results, setResults }) {
   const [searchCriteria, setSearchCriteria] = useState({
     location: { value: "" },
     startDate: { value: "" },
-    endDate: { value: "" }
+    endDate: { value: "" },
   });
   const [errors, setErrors] = useState({
     location: false,
     startDate: false,
-    endDate: false
+    endDate: false,
   });
 
   const fields = [
@@ -19,30 +19,32 @@ function SearchBar({ results, setResults }) {
       name: "location",
       type: "text",
       label: "Location",
-      placeholder: "Search by location..."
+      placeholder: "Search by location...",
     },
     { name: "startDate", type: "date", label: "Check In" },
-    { name: "endDate", type: "date", label: "Check Out" }
+    { name: "endDate", type: "date", label: "Check Out" },
   ];
 
   return (
     <>
       <form>
         <h2>Search for your next experience</h2>
-        {fields.map(({ name, type, label, placeholder = "" }, index) => (
-          <div key={index}>
-            {errors[name] && <p style={{ color: "red" }}>{label} required</p>}
-            <label htmlFor={name}>{label}</label>
-            <input
-              id={name}
-              type={type}
-              data-criteria={name}
-              onChange={updateSearch}
-              placeholder={placeholder}
-            />
-          </div>
-        ))}
-        <button onClick={search}>Search</button>
+        <div className="search-form">
+          {fields.map(({ name, type, label, placeholder = "" }, index) => (
+            <div key={index}>
+              {errors[name] && <p style={{ color: "red" }}>{label} required</p>}
+              <label htmlFor={name}>{label}</label>
+              <input
+                id={name}
+                type={type}
+                data-criteria={name}
+                onChange={updateSearch}
+                placeholder={placeholder}
+              />
+            </div>
+          ))}
+          <button onClick={search}>Search</button>
+        </div>
       </form>
     </>
   );

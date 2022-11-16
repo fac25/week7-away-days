@@ -38,7 +38,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="main-container">
       <BrowserRouter>
         <Routes>
           {/* Start of layout route */}
@@ -113,8 +113,8 @@ function App() {
             </>
           )}
         </Routes>
-      </BrowserRouter>
       <Footer />
+      </BrowserRouter>
     </div>
   );
 }

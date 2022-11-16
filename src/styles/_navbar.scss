@@ -1,0 +1,21 @@
+@use "variables";
+
+nav{
+    ul{
+        display: flex;
+        justify-content: space-around;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding-top: 5vw;
+        .left,.right, .user-logged-in{
+            display: flex;
+            li{
+                display: block;
+                padding: 10px 16px;
+                :hover{
+                    color: variables.$secondary;
+                }
+            }
+        }
+    }
+}
