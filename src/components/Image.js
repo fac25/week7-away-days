@@ -12,7 +12,7 @@ function Image({ src, alt = "" }) {
     })();
   }, [src]);
 
-  return <img src={fileURL} alt={alt} />;
+  return <img className="event-image" src={fileURL} alt={alt} />;
 }
 
 export default Image;

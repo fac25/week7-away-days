@@ -18,17 +18,22 @@ export default function Results({ results }) {
   }, []);
 
   return (
-    <div>
+    <div className="events">
       {results ? (
         results.length ? (
-          <ResultCards results={results} />
+          <div className="event">
+            <ResultCards results={results} />
+          </div>
         ) : (
           <p>No events found...</p>
         )
       ) : (
         <>
           <h2>Events</h2>
-          <ResultCards results={eventsData} />
+
+          <div className="event">
+            <ResultCards results={eventsData} />
+          </div>
         </>
       )}
     </div>
@@ -37,16 +42,27 @@ export default function Results({ results }) {
 
 function ResultCards({ results }) {
   return results.map((resultItem, index) => (
-    <Link to={`/current-event/${resultItem.id}`} key={`event-${index}`}>
-      <div>
-        <p>Name: {resultItem.name}</p>
+    <div className="event-wrapper">
+      <Link to={`/current-event/${resultItem.id}`} key={`event-${index}`}>
+        <p className="name">
+          <span>Name:</span> {resultItem.name}
+        </p>
         <Image src={resultItem.img} />
-        <p>Sport: {resultItem.sport}</p>
-        <p>Description: {resultItem.description}</p>
-        <p>Start date: {formatDate(resultItem.startDate)}</p>
-        <p>Start date: {formatDate(resultItem.endDate)}</p>
-        <hr />
-      </div>
-    </Link>
+        <p className="sport">
+          <span>Sport: </span>
+          {resultItem.sport}
+        </p>
+        <p className="description">
+          <span>Description: </span>
+          {resultItem.description}
+        </p>
+        <p className="start-date">
+          <span>Start date:</span> {formatDate(resultItem.startDate)}
+        </p>
+        <p className="end-date">
+          <span>End date:</span> {formatDate(resultItem.endDate)}
+        </p>
+      </Link>
+    </div>
   ));
 }
