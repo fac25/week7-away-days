@@ -13,6 +13,9 @@ Run ```npm install``` to install all the dependencies.
 
 To run the server ```npm start```
 
+Reach out to us for access to the dev environment.
+
+
 ## User stories: 
 
 ## Core
