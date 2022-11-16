@@ -12,7 +12,6 @@
       margin-top: 2vw;
       padding-top: 2vw;
       border: 1px solid variables.$primary-text;
-      border-radius: 10px;
       div { 
         width: 80%;
         margin: 0 auto;
@@ -32,7 +31,6 @@
         padding: 5px 16px;
         background-color: variables.$primary;
         border: 1px solid variables.$primary-text;
-        border-radius: 10px;
         cursor: pointer;
         &:hover{
           color:  variables.$secondary;

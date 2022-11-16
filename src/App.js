@@ -50,6 +50,9 @@ function App() {
               path="/my-profile/edit-profile"
               element={<EditProfile user={user} />}
             />
+            {user && (
+              <Route path="/my-profile" element={<MyProfile user={user} />} />
+            )}
 
             <Route
               path="/current-event/:id"
@@ -80,7 +83,6 @@ function App() {
           {/* Create */}
           {user && (
             <>
-              <Route path="/my-profile" element={<MyProfile user={user} />} />
               <Route
                 path="/create-event"
                 element={[
@@ -115,7 +117,7 @@ function App() {
             </>
           )}
         </Routes>
-      <Footer />
+        <Footer />
       </BrowserRouter>
     </div>
   );
