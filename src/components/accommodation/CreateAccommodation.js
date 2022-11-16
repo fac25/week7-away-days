@@ -6,7 +6,7 @@ const CreateAccommodation = ({ setAccommodation }) => {
 
   useEffect(() => {
     setAccommodation((prevObj) => {
-      return { ...prevObj, image: imageFileName };
+      return { ...prevObj, img: imageFileName };
     });
   }, [imageFileName]);
 
