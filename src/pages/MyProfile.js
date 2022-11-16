@@ -10,7 +10,7 @@ import Image from "../components/Image";
 export default function MyProfile({ user }) {
   const [profileData, setProfileData] = useState({
     profile: [],
-    hostedEvents: null
+    hostedEvents: null,
   });
   const profile = profileData.profile[0];
   const [reviews, setReviews] = useState([]);
