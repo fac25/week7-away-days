@@ -44,9 +44,7 @@ function App() {
           {/* Start of layout route */}
           <Route
             path="/"
-            element={
-              <Layout user={user} setUser={setUser} element={<Search />} />
-            }
+            element={[<Layout user={user} setUser={setUser} />, <Search />]}
           >
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
