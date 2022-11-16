@@ -103,10 +103,6 @@ function App() {
                 }
               />
               <Route
-                path="/create-review"
-                element={<CreateReview user={user} />}
-              />
-              <Route
                 path="/create-accommodation"
                 element={
                   <CreateAccommodation

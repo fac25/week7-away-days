@@ -10,9 +10,10 @@ import Image from "../components/Image";
 export default function MyProfile({ user }) {
   const [profileData, setProfileData] = useState({
     profile: [],
-    hostedEvents: null,
+    hostedEvents: null
   });
   const profile = profileData.profile[0];
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     // If user does not exist exit the function
@@ -74,7 +75,11 @@ export default function MyProfile({ user }) {
 
           <section>
             <h2>Reviews</h2>
-            <DisplayReviews UserID={user?.username} />
+            <DisplayReviews
+              reviews={reviews}
+              setReviews={setReviews}
+              UserID={user?.username}
+            />
           </section>
         </>
       )}

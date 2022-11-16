@@ -3,9 +3,12 @@ import { FaStar } from "react-icons/fa";
 import { DataStore } from "@aws-amplify/datastore";
 import { Reviews } from "../../models";
 
-export default function DisplayReviews({ eventId, UserID }) {
-  const [reviews, setReviews] = useState([]);
-
+export default function DisplayReviews({
+  EventID,
+  UserID,
+  reviews,
+  setReviews
+}) {
   useEffect(() => {
     const getReviewData = async function (key, value) {
       const reviewData = await DataStore.query(Reviews, (item) =>
@@ -16,8 +19,8 @@ export default function DisplayReviews({ eventId, UserID }) {
 
     UserID
       ? getReviewData("UserID", UserID)
-      : getReviewData("EventID", eventId);
-  }, [eventId, UserID]);
+      : getReviewData("EventID", EventID);
+  }, [EventID, UserID]);
 
   return (
     <div>
