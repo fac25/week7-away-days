@@ -58,9 +58,13 @@ function App() {
             <Route path="/display-reviews" element={<DisplayReviews />} />
 
             <Route
-              path="/display-profile"
+              path="/display-profile/:id"
               element={
-                <DisplayProfile Profile={Profile} DataStore={DataStore} />
+                <DisplayProfile
+                  Profile={Profile}
+                  DataStore={DataStore}
+                  user={user}
+                />
               }
             />
             <Route path="/email" element={<Email />} />

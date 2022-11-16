@@ -8,7 +8,7 @@ const CreateReview = ({ EventID, UserID, setReviews }) => {
   const [currentReview, setCurrentReview] = useState({
     name: "",
     rating: "",
-    description: ""
+    description: "",
   });
 
   const handleChange = ({ target }) => {
@@ -25,14 +25,14 @@ const CreateReview = ({ EventID, UserID, setReviews }) => {
         rating: parseInt(currentReview.rating),
         description: currentReview.description,
         EventID,
-        UserID
+        UserID,
       })
     );
   };
 
   return (
     <div>
-      <h1>Create Event</h1>
+      <h1>Create Review</h1>
       <label htmlFor="name">Name</label>
       <input type="text" id="name" onChange={handleChange} />
 
@@ -42,7 +42,7 @@ const CreateReview = ({ EventID, UserID, setReviews }) => {
       <label htmlFor="description">Description</label>
       <textarea id="description" onChange={handleChange}></textarea>
 
-      <button onClick={handleClick}>Create Event</button>
+      <button onClick={handleClick}>Create Review</button>
     </div>
   );
 };

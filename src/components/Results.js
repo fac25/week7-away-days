@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 export default function Results({ results }) {
   // All Events Data Array
   const [eventsData, setEventsData] = useState([]);
+
   useEffect(() => {
     const awsEventData = async function () {
       const awsEvents = await DataStore.query(Events);
