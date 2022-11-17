@@ -1,6 +1,6 @@
 // React
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // AWS, Auth, Storage
 import { DataStore } from "@aws-amplify/datastore";
@@ -102,7 +102,8 @@ function App() {
               />
             </>
           )}
-          <Route path="*" element={<NotFound />}></Route>
+         <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/404" />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
