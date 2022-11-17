@@ -11,7 +11,6 @@ import Layout from "./components/Layout.js";
 import Authenticate from "./pages/Authenticate.js";
 import AboutUs from "./pages/AboutUs.js";
 import Contact from "./pages/Contact.js";
-import MyProfile from "./pages/MyProfile.js";
 import Email from "./components/Email";
 import Footer from "./components/Footers.js";
 import Search from "./pages/Search.js";
@@ -22,11 +21,10 @@ import CurrentEvent from "./components/event/CurrentEvent.js";
 
 import CreateAccommodation from "./components/accommodation/CreateAccommodation";
 
-import CreateReview from "./components/reviews/CreateReview";
 import DisplayReviews from "./components/reviews/DisplayReviews";
 
 import CreateProfile from "./components/profile/CreateProfile";
-import DisplayProfile from "./components/profile/DisplayProfile";
+import DisplayProfile from "./pages/DisplayProfile";
 
 import EditProfile from "./pages/EditProfile";
 import NavBar from "./components/NavBar";
@@ -51,9 +49,6 @@ function App() {
               path="/my-profile/edit-profile"
               element={<EditProfile user={user} />}
             />
-            {user && (
-              <Route path="/my-profile" element={<MyProfile user={user} />} />
-            )}
 
             <Route
               path="/current-event/:id"
@@ -63,13 +58,7 @@ function App() {
 
             <Route
               path="/display-profile/:id"
-              element={
-                <DisplayProfile
-                  Profile={Profile}
-                  DataStore={DataStore}
-                  user={user}
-                />
-              }
+              element={<DisplayProfile user={user} />}
             />
             <Route path="/email" element={<Email />} />
           </Route>
