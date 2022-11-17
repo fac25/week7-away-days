@@ -23,20 +23,20 @@ export default function DisplayReviews({
   }, [EventID, UserID, reviews, setReviews]);
 
   return (
-    <div>
+    <div className="display-review">
       {reviews ? (
         reviews.map((review, index) => {
           return (
             <ul key={index}>
-              <li>{review.name}</li>
-              <li>
+              <li>Name: {review.name}</li>
+              <li>Rate: 
                 {Array(review.rating)
                   .fill()
                   .map((_, index) => (
                     <FaStar key={index} color="orange" />
                   ))}
               </li>
-              <li>{review.description}</li>
+              <li>Description:{review.description}</li>
             </ul>
           );
         })

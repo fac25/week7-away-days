@@ -17,13 +17,14 @@
       width: 100%;
       margin-top: 1vw;
       border: 1px solid variables.$primary-text;
-      .name{
+      border-radius: 10px;
+      .name {
         padding: 0.5vw 1vw;
       }
       p {
         padding: 0vw 1vw;
       }
-      .end-date{
+      .end-date {
         margin-bottom: 10px;
       }
       .event-image {

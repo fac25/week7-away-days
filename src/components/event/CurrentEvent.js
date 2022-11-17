@@ -38,17 +38,21 @@ const CurrentEvent = () => {
 
   return (
     currentEvent && (
-      <div>
+      <div className="current-event">
         {hostData && <ProfileLink hostData={hostData} />}
-        <h2>{currentEvent.name}</h2>
-        <h3>{currentEvent.sport}</h3>
-        <p>{currentEvent.location}</p>
-        <div>
-          <span>{currentEvent.startDate}</span>
-          <span>{currentEvent.endDate}</span>
+        <div className="current-event-wrapper">
+          <h2>Event name: {currentEvent.name}</h2>
+          <div className="sport-wrapper">
+            <h3>Sport: {currentEvent.sport}</h3>
+            <p>Location: {currentEvent.location}</p>
+          </div>
+          <div className="dates">
+            <span>Start date: {currentEvent.startDate}</span>
+            <span>End date: {currentEvent.endDate}</span>
+          </div>
+          <Image src={currentEvent.img} alt="test" />
+          <p>Description: {currentEvent.description}</p>
         </div>
-        <Image src={currentEvent.img} alt="test" />
-        <p>{currentEvent.description}</p>
         <CreateReview
           setReviews={setReviews}
           EventID={currentEvent.id}
@@ -67,10 +71,12 @@ const CurrentEvent = () => {
 
 function ProfileLink({ hostData }) {
   return (
-    <Link to={`/display-profile/${hostData.UserID}`}>
-      <Image src={hostData.profilePic} />
-      <h2>{hostData.name + " " + hostData.lastName}</h2>
-    </Link>
+    <div className="profile-link">
+      <Link to={`/display-profile/${hostData.UserID}`}>
+        <Image src={hostData.profilePic} />
+        <h2>{hostData.name + " " + hostData.lastName}</h2>
+      </Link>
+    </div>
   );
 }
 

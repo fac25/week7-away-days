@@ -1,0 +1,27 @@
+@use "variables";
+
+.create-review{
+    border: 1px solid variables.$primary-text;
+    border-radius: 10px;
+    margin: 2vh 0;
+    h1{
+        text-align: center;
+        padding: 16px;
+    }
+    .create-review-wrapper{
+        width: 60%;
+        margin: 0 auto;
+        label, input, textarea{
+            width: 100%;
+        }
+        input, button, textarea{
+            color: variables.$secondary-text;
+            margin-bottom: 1vh;
+        }
+        button{
+            width: 40%;
+            margin-left: 30%;
+        }
+    }
+   
+}
