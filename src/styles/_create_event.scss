@@ -1,0 +1,53 @@
+@use "variables";
+
+.create-event {
+  width: 40rem;
+  margin: 0 auto;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  h1 {
+    margin-top: 2vh;
+    text-align: center;
+    padding: 20px 0;
+  }
+  input,
+  textarea {
+    color: variables.$secondary-text;
+    width: 100%;
+    font-size: clamp(0.5rem, 1.2vw, 1.3rem);
+    margin-bottom: 1vw;
+    padding-left: 10px;
+    resize: none;
+  }
+  input[type="file"] {
+    color: variables.$primary-text;
+  }
+  .input-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .date-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    div {
+      display: flex;
+      width: 50%;
+      input {
+        width: 45%;
+      }
+      label {
+        width: 30%;
+      }
+    }
+  }
+  button {
+    display: block;
+    padding: 10px;
+    background-color: variables.$primary;
+    border: 1px solid variables.$primary-text;
+  }
+}
