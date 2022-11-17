@@ -13,7 +13,7 @@ const CreateEvent = ({ User }) => {
   const [accommodation, setAccommodation] = useState({
     location: "",
     facilities: "",
-    description: ""
+    description: "",
   });
 
   const handleChange = (e) => {
@@ -37,7 +37,7 @@ const CreateEvent = ({ User }) => {
           endDate: createEvent.endDate,
           description: createEvent.description,
           location: createEvent.location,
-          UserID: User.username
+          UserID: User.username,
         })
       );
       await DataStore.save(
@@ -47,7 +47,7 @@ const CreateEvent = ({ User }) => {
           description: accommodation.description,
           img: accommodation.img,
           EventID: newEvent.id,
-          UserID: newEvent.UserID
+          UserID: newEvent.UserID,
         })
       );
     } else setCheckDate(true);
@@ -66,34 +66,38 @@ const CreateEvent = ({ User }) => {
   }
 
   return (
-    <div>
-      <h1>Create Event</h1>
-      <label htmlFor="name">Name</label>
-      <input type="text" id="name" onChange={handleChange} />
+    <div className="create-event">
+      <form action="">
+        <h1>Create Event</h1>
+        <label htmlFor="name">Name</label>
+        <input type="text" id="name" onChange={handleChange} />
 
-      <label htmlFor="sport">Sport</label>
-      <input type="text" id="sport" onChange={handleChange} />
+        <label htmlFor="sport">Sport</label>
+        <input type="text" id="sport" onChange={handleChange} />
 
-      <input type="file" onChange={handleImg} />
+        <label htmlFor="upload image">Upload image:</label>
+        <input type="file" onChange={handleImg} />
 
-      <label htmlFor="start-date">Start Date</label>
-      <input type="date" id="startDate" onChange={handleChange} />
-
-      <div>
-        <label htmlFor="end-date">End Date</label>
-        <input type="date" id="endDate" onChange={handleChange} />
+        <div className="date-wrapper">
+          <div>
+            <label htmlFor="start-date">Start Date</label>
+            <input type="date" id="startDate" onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="end-date">End Date</label>
+            <input type="date" id="endDate" onChange={handleChange} />
+          </div>
+        </div>
         {checkDate ? <p>end date should be after start date</p> : <></>}
-      </div>
 
-      <label htmlFor="description">Description</label>
-      <textarea id="description" onChange={handleChange}></textarea>
+        <label htmlFor="description">Description</label>
+        <textarea id="description" onChange={handleChange}></textarea>
 
-      <label htmlFor="location">Location</label>
-      <input type="text" id="location" onChange={handleChange} />
-
-      <CreateAccommodation setAccommodation={setAccommodation} />
-
-      <button onClick={handleClick}>Create Event</button>
+        <label htmlFor="location">Location</label>
+        <input type="text" id="location" onChange={handleChange} />
+        <CreateAccommodation setAccommodation={setAccommodation} />
+        <button onClick={handleClick}>Create Event</button>
+      </form>
     </div>
   );
 };
