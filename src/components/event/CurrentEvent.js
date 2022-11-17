@@ -49,7 +49,6 @@ const CurrentEvent = () => {
         </div>
         <Image src={currentEvent.img} alt="test" />
         <p>{currentEvent.description}</p>
-        {/* <DisplayAcommodation EventID={currentEvent.id} /> */}
         <CreateReview
           setReviews={setReviews}
           EventID={currentEvent.id}
