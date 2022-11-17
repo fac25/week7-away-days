@@ -49,10 +49,15 @@ function ResultCards({ results }) {
           <span>Name:</span> {resultItem.name}
         </p>
         <Image src={resultItem.img} />
+        <p className="location">
+          <span>Location:</span>
+          {resultItem.location}
+        </p>
         <p className="sport">
           <span>Sport: </span>
           {resultItem.sport}
         </p>
+
         <p className="description">
           <span>Description: </span>
           {resultItem.description}
