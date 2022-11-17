@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Storage } from "aws-amplify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Accommodation, Events } from "../../models";
 import { DataStore } from "aws-amplify";
 import CreateAccommodation from "../accommodation/CreateAccommodation";
@@ -51,7 +51,6 @@ const CreateEvent = ({ User }) => {
         })
       );
     } else setCheckDate(true);
-    navigate("/my-profile");
   };
 
   // Img
@@ -96,7 +95,7 @@ const CreateEvent = ({ User }) => {
         <label htmlFor="location">Location</label>
         <input type="text" id="location" onChange={handleChange} />
         <CreateAccommodation setAccommodation={setAccommodation} />
-        <button onClick={handleClick}>Create Event</button>
+        <Link to={`/display-profile/${User.username}`}onClick={handleClick}>Create Event</Link>
       </form>
     </div>
   );
