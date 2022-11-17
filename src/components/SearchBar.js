@@ -36,6 +36,7 @@ function SearchBar({ results, setResults }) {
               <label htmlFor={name}>{label}</label>
               <input
                 id={name}
+                data-testid={name}
                 type={type}
                 data-criteria={name}
                 onChange={updateSearch}
@@ -43,7 +44,9 @@ function SearchBar({ results, setResults }) {
               />
             </div>
           ))}
-          <button onClick={search}>Search</button>
+          <button onClick={search} data-testid="search-btn">
+            Search
+          </button>
         </div>
       </form>
     </>
