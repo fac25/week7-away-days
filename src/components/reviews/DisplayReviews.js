@@ -7,7 +7,7 @@ export default function DisplayReviews({
   EventID,
   UserID,
   reviews,
-  setReviews
+  setReviews,
 }) {
   useEffect(() => {
     const getReviewData = async function (key, value) {
@@ -20,7 +20,7 @@ export default function DisplayReviews({
     UserID
       ? getReviewData("UserID", UserID)
       : getReviewData("EventID", EventID);
-  }, [EventID, UserID]);
+  }, [EventID, UserID, reviews, setReviews]);
 
   return (
     <div>
@@ -41,7 +41,7 @@ export default function DisplayReviews({
           );
         })
       ) : (
-        <p>Loading...</p>
+        <p>No reviews to display.</p>
       )}
     </div>
   );

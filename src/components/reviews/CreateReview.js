@@ -28,6 +28,7 @@ const CreateReview = ({ EventID, UserID, setReviews }) => {
         UserID,
       })
     );
+    console.log(currentReview.rating);
   };
 
   return (
@@ -37,7 +38,14 @@ const CreateReview = ({ EventID, UserID, setReviews }) => {
       <input type="text" id="name" onChange={handleChange} />
 
       <label htmlFor="rating">Rating</label>
-      <input type="text" id="rating" onChange={handleChange} />
+      <input
+        type="number"
+        min={1}
+        max={5}
+        placeholder="Enter a number between 1-5"
+        id="rating"
+        onChange={handleChange}
+      />
 
       <label htmlFor="description">Description</label>
       <textarea id="description" onChange={handleChange}></textarea>
