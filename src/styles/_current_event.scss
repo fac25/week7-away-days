@@ -1,0 +1,27 @@
+@use "variables";
+.current-event {
+  max-width: 600px;
+  margin: 0 auto;
+  .current-event-wrapper {
+    border: 1px solid variables.$primary-text;
+    border-radius: 10px;
+    p,h2,h3,span{
+        padding-left: 2vh;
+    }
+    .event-image {
+      width: 100%;
+    }
+    .sport-wrapper {
+      display: flex;
+      p,
+      h3 {
+        width: 34%;
+      }
+    }
+    .dates{
+        span{
+            margin-right: 5vh;
+        }
+    }
+  }
+}

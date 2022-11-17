@@ -1,6 +1,7 @@
 @use "variables";
 
 .get-in-touch {
+  
   width: 650px;
   margin: 0 auto;
   height: 75vh;
@@ -48,6 +49,7 @@
     padding: 10px;
     background-color: variables.$primary;
     border: 1px solid variables.$primary-text;
+    border-radius: 10px;
   }
 
   .get-in-touch button:hover {

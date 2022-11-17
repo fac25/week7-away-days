@@ -10,7 +10,7 @@ const Email = ({ hostData }) => {
     setCurrentEmail();
   });
   return (
-    <div>
+    <div className="contact-host">
       <h1>Contact Host</h1>
       <form action={`mailto:${email}`}>
         <button>Contact</button>

@@ -32,25 +32,27 @@ const CreateReview = ({ EventID, UserID, setReviews }) => {
   };
 
   return (
-    <div>
-      <h1>Create Review</h1>
-      <label htmlFor="name">Name</label>
-      <input type="text" id="name" onChange={handleChange} />
+    <div className="create-review">
+      <h1>Review Event</h1>
+      <div className="create-review-wrapper">
+        <label htmlFor="name">Name</label>
+        <input type="text" id="name" onChange={handleChange} />
 
-      <label htmlFor="rating">Rating</label>
-      <input
-        type="number"
-        min={1}
-        max={5}
-        placeholder="Enter a number between 1-5"
-        id="rating"
-        onChange={handleChange}
-      />
+        <label htmlFor="rating">Rating</label>
+        <input
+          type="number"
+          min={1}
+          max={5}
+          placeholder="Enter a number between 1-5"
+          id="rating"
+          onChange={handleChange}
+        />
 
-      <label htmlFor="description">Description</label>
-      <textarea id="description" onChange={handleChange}></textarea>
+        <label htmlFor="description">Description</label>
+        <textarea id="description" onChange={handleChange}></textarea>
 
-      <button onClick={handleClick}>Create Review</button>
+        <button onClick={handleClick}>Create Review</button>
+      </div>
     </div>
   );
 };

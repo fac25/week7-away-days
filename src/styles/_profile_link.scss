@@ -1,0 +1,19 @@
+@use "variables";
+
+.profile-link{
+    margin: 3vh auto;
+    border: 1px solid variables.$primary-text;
+    border-radius: 10px;
+    padding: 0.5vh 3vh;
+    a{
+        display: flex;
+        .event-image{
+            width: 110px;
+            border-radius: 50%;
+        }
+        h2{
+            padding: 2.5vh;
+        }
+    }
+
+}

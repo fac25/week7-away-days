@@ -1,0 +1,20 @@
+@use "variables";
+
+.contact-host {
+  margin-top: 2vh;
+  border: 1px solid variables.$primary-text;
+  border-radius: 10px;
+  h1 {
+    text-align: center;
+    padding: 16px;
+  }
+  button {
+    background-color: variables.$primary;
+    border: 1px solid variables.$primary-text;
+    padding: 5px;
+    margin-bottom: 2vh;
+    border-radius: 5px;
+    width: 30%;
+    margin-left: 35%;
+  }
+}

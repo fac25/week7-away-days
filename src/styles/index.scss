@@ -10,6 +10,16 @@
 
 @use "event";
 
+@use "current_event";
+
+@use "create_review";
+
+@use "profile_link";
+
+@use "display_review";
+
+@use "contact_host";
+
 @use "not_found";
 
 @use "create_event";
