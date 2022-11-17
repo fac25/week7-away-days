@@ -77,7 +77,7 @@ function App() {
           <>
             <Route
               path="/authenticate"
-              element={<Authenticate setUser={setUser} />}
+              element={<Authenticate />}
             />
           </>
           {/* Create */}
