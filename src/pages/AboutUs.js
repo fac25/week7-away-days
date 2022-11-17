@@ -1,6 +1,6 @@
 export default function AboutUs() {
   return (
-    <div>
+    <div className="about">
       <h1>About Us</h1>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting

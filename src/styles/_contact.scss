@@ -1,0 +1,57 @@
+@use "variables";
+
+.get-in-touch {
+  width: 650px;
+  margin: 0 auto;
+  height: 75vh;
+  h2 {
+    margin-top: 2vh;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .email,
+  .message,
+  button,
+  .name,
+  .subject {
+    width: 100%;
+    font-size: clamp(0.5rem, 1.2vw, 1.3rem);
+    margin-bottom: 1vw;
+    padding-left: 10px;
+  }
+
+  .input-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .input-wrapper div {
+    width: 45%;
+  }
+
+  .message {
+    height: 200px;
+  }
+
+  .consent-wrapper {
+    text-align: center;
+    margin-bottom: 2vw;
+  }
+
+  .consent-wrapper input {
+    width: max(0.8vw, 12px);
+    height: max(0.8vw, 12px);
+  }
+
+  button {
+    display: block;
+    padding: 10px;
+    background-color: variables.$primary;
+    border: 1px solid variables.$primary-text;
+  }
+
+  .get-in-touch button:hover {
+    cursor: pointer;
+    color: var(--secondary-color);
+  }
+}
