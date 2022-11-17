@@ -58,6 +58,7 @@ type EagerProfile = {
   readonly pastEvents?: string | null;
   readonly interests?: string | null;
   readonly profilePic?: string | null;
+  readonly email?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -74,6 +75,7 @@ type LazyProfile = {
   readonly pastEvents?: string | null;
   readonly interests?: string | null;
   readonly profilePic?: string | null;
+  readonly email?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

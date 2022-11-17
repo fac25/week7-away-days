@@ -75,10 +75,7 @@ function App() {
           </Route>
           {/* End of Layout route */}
           <>
-            <Route
-              path="/authenticate"
-              element={<Authenticate />}
-            />
+            <Route path="/authenticate" element={<Authenticate />} />
           </>
           {/* Create */}
           {user && (
