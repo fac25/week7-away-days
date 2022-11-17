@@ -17,9 +17,6 @@ export default function NavBar({ user, setUser }) {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
-            <li>
-              <Link to="/search">Search</Link>
-            </li>
             {user && (
               <div className="user-logged-in">
                 <li>

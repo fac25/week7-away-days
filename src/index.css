@@ -96,6 +96,15 @@ nav ul .left li :hover, nav ul .right li :hover, nav ul .user-logged-in li :hove
   height: 40%;
 }
 
+.not-found {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 40vh;
+}
+.not-found h1 {
+  text-align: center;
+}
+
 footer {
   position: absolute;
   bottom: 30px;

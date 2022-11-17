@@ -15,6 +15,7 @@ import MyProfile from "./pages/MyProfile.js";
 import Email from "./components/Email";
 import Footer from "./components/Footers.js";
 import Search from "./pages/Search.js";
+import NotFound from "./pages/NotFound"
 
 import CreateEvent from "./components/event/CreateEvent";
 import CurrentEvent from "./components/event/CurrentEvent.js";
@@ -71,7 +72,6 @@ function App() {
               }
             />
             <Route path="/email" element={<Email />} />
-            <Route path="/search" element={<Search />} />
           </Route>
           {/* End of Layout route */}
           <>
@@ -116,6 +116,7 @@ function App() {
               />
             </>
           )}
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
