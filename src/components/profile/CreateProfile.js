@@ -31,7 +31,8 @@ const CreateProfile = ({ user }) => {
         interests: profile.interests,
         name: user.attributes.name,
         lastName: user.attributes.family_name,
-        UserID: user.username
+        UserID: user.username,
+        email: user.attributes.email,
       })
     );
     navigate("/");

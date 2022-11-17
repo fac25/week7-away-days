@@ -4,6 +4,7 @@ import DisplayReviews from "../reviews/DisplayReviews";
 import { Events, Profile } from "../../models";
 import { DataStore } from "aws-amplify";
 import Image from "../Image";
+import Email from "../Email";
 import CreateReview from "../reviews/CreateReview";
 import { Link } from "react-router-dom";
 
@@ -34,7 +35,6 @@ const CurrentEvent = () => {
   }, [userProfileID]);
 
   const hostData = profileData[0];
-  console.log(hostData);
 
   return (
     currentEvent && (
@@ -49,7 +49,6 @@ const CurrentEvent = () => {
         </div>
         <Image src={currentEvent.img} alt="test" />
         <p>{currentEvent.description}</p>
-        <DisplayAcommodation EventID={currentEvent.id} />
         <CreateReview
           setReviews={setReviews}
           EventID={currentEvent.id}
@@ -60,6 +59,7 @@ const CurrentEvent = () => {
           setReviews={setReviews}
           EventID={currentEvent.id}
         />
+        <Email hostData={hostData} />
       </div>
     )
   );
