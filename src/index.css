@@ -33,21 +33,85 @@ nav ul .left li :hover, nav ul .right li :hover, nav ul .user-logged-in li :hove
   color: #FCA311;
 }
 
+.about {
+  max-width: 750px;
+  margin: 0 auto;
+  height: 75vh;
+}
+.about h1 {
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.about p {
+  margin-top: 30px;
+  text-align: justify;
+}
+
+.get-in-touch {
+  width: 650px;
+  margin: 0 auto;
+  height: 75vh;
+}
+.get-in-touch h2 {
+  margin-top: 2vh;
+  text-align: center;
+  padding: 20px 0;
+}
+.get-in-touch .email,
+.get-in-touch .message,
+.get-in-touch button,
+.get-in-touch .name,
+.get-in-touch .subject {
+  width: 100%;
+  font-size: clamp(0.5rem, 1.2vw, 1.3rem);
+  margin-bottom: 1vw;
+  padding-left: 10px;
+}
+.get-in-touch .input-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.get-in-touch .input-wrapper div {
+  width: 45%;
+}
+.get-in-touch .message {
+  height: 200px;
+}
+.get-in-touch .consent-wrapper {
+  text-align: center;
+  margin-bottom: 2vw;
+}
+.get-in-touch .consent-wrapper input {
+  width: max(0.8vw, 12px);
+  height: max(0.8vw, 12px);
+}
+.get-in-touch button {
+  display: block;
+  padding: 10px;
+  background-color: #14213D;
+  border: 1px solid white;
+}
+.get-in-touch .get-in-touch button:hover {
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+
 .search form h2 {
   text-align: center;
-  margin-top: 5vw;
+  margin-top: 4vw;
 }
 .search form .search-form {
   width: 500px;
   margin: 0 auto;
-  margin-top: 2vw;
-  padding-top: 2vw;
+  margin-top: 1vw;
+  padding-top: 1vw;
   border: 1px solid white;
 }
 .search form .search-form div {
   width: 80%;
   margin: 0 auto;
-  margin-top: 2vw;
+  margin-top: 1vw;
 }
 .search form .search-form div label,
 .search form .search-form div input {
@@ -59,7 +123,7 @@ nav ul .left li :hover, nav ul .right li :hover, nav ul .user-logged-in li :hove
 }
 .search form .search-form button {
   display: block;
-  margin: 2vw auto;
+  margin: 1vw auto;
   padding: 5px 16px;
   background-color: #14213D;
   border: 1px solid white;
@@ -70,13 +134,13 @@ nav ul .left li :hover, nav ul .right li :hover, nav ul .user-logged-in li :hove
 }
 
 .events {
-  width: 80%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .events h2 {
   text-align: center;
-  padding: 2vw 0;
-  margin-top: 5vw;
+  padding: 1vw 0;
+  margin-top: 3vw;
 }
 .events .event {
   display: grid;
@@ -84,16 +148,25 @@ nav ul .left li :hover, nav ul .right li :hover, nav ul .user-logged-in li :hove
   column-gap: 2%;
 }
 .events .event .event-wrapper {
+  display: block;
   width: 100%;
-  margin-top: 2vw;
+  margin-top: 1vw;
   border: 1px solid white;
 }
+.events .event .event-wrapper .name {
+  padding: 0.5vw 1vw;
+}
 .events .event .event-wrapper p {
-  padding: 0.5vw 2vw;
+  padding: 0vw 1vw;
+}
+.events .event .event-wrapper .end-date {
+  margin-bottom: 10px;
 }
 .events .event .event-wrapper .event-image {
+  margin-bottom: 20px;
   width: 100%;
-  height: 40%;
+  display: block;
+  height: 20vh;
 }
 
 .not-found {
@@ -106,8 +179,7 @@ nav ul .left li :hover, nav ul .right li :hover, nav ul .user-logged-in li :hove
 }
 
 footer {
-  position: absolute;
-  bottom: 30px;
   width: 100%;
+  padding: 30px 0;
   text-align: center;
 }
