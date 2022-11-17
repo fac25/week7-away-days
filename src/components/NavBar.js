@@ -23,7 +23,9 @@ export default function NavBar({ user, setUser }) {
             {user && (
               <div className="user-logged-in">
                 <li>
-                  <Link to="/my-profile">My Profile</Link>
+                  <Link to={`/display-profile/${user.username}`}>
+                    My Profile
+                  </Link>
                 </li>
                 <li>
                   <Link to="/create-event">Create Event</Link>

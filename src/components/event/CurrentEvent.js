@@ -67,7 +67,7 @@ const CurrentEvent = () => {
 
 function ProfileLink({ hostData }) {
   return (
-    <Link to={`/display-profile/${hostData.id}`}>
+    <Link to={`/display-profile/${hostData.UserID}`}>
       <Image src={hostData.profilePic} />
       <h2>{hostData.name + " " + hostData.lastName}</h2>
     </Link>
