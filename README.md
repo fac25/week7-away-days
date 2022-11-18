@@ -132,15 +132,18 @@ We are quite happy with what we produced.
 
 #### How did you plan a user experience?
 
+Using Figma
 
 #### What technical decisions did you make?
 
 
 #### Server-render vs client-render vs both
 
+Client-render
 
 #### Relational or non-relational or no DB
 
+Non-relational DB
 
 #### Self-hosted or platform-as-a-service
 
@@ -157,13 +160,19 @@ We are quite happy with what we produced.
 
 ### How did you ensure your code was good?
 
+We had the best QA.
+
 ### Create logical and maintainable code to deliver project outcomes, explaining their choice of approach. (S1)
 
 ### What interesting technical problems did you have to solve?
 
+How to query and add data to our AWS Amplify database.
+ 
 ### Outline and apply the rationale and use of algorithms, logic and data structures. (K9, S16)
 
 ### How did you debug issues that arose?
+
+Searched in Google. Asked the other people in our group. 
 
 ### Apply structured techniques to problem solving to identify and resolve issues and debug basic flaws in code (S7)
 
@@ -181,9 +190,13 @@ We are quite happy with what we produced.
 
 #### Where/how did you deploy your application?
 
+AWS Amplify
+
 #### Review and justify their contribution to building, managing and deploying code into the relevant environment in accordance with the project specification (S10)
 
 #### What problems did you encounter during deployment?
+
+Right at the end of the build we had deployment problems.  
 
 ### Maintain 
 
