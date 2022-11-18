@@ -78,14 +78,6 @@ The features would be built in a self-contained environment to later bring them 
 
 ## Requirement analysis 
 
-### How will you ensure your project is accessible to as many users as possible?
-
--
-
-### Are there any legal or regulatory requirements you should consider?
-
--
-
 ## Project learnings 
 
 - AWS Amplify, React, SASS
@@ -106,13 +98,11 @@ The features would be built in a self-contained environment to later bring them 
 
 ## Project outcomes 
 
-### Were your assumptions right or wrong?
-
-- 
-
 ## Recommendations and conclusions 
 
 ### What features would you prioritise to build next?
+
+A chat feature
 
 ### Was the project a success?
 
