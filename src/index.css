@@ -335,12 +335,6 @@ nav ul .left li :hover, nav ul .right li :hover, nav ul .user-logged-in li :hove
   border: 1px solid white;
 }
 
-footer {
-  width: 100%;
-  padding: 30px 0;
-  text-align: center;
-}
-
 .edit-profile {
   border: 1px solid;
   border-radius: 10px;
@@ -373,4 +367,15 @@ footer {
 .display-profile {
   max-width: 800px;
   margin: 0 auto;
+}
+.display-profile .display-profile-wrapper {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 2vh 10px;
+}
+
+footer {
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
 }

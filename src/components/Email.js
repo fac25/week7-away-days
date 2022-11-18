@@ -12,6 +12,8 @@ const Email = ({ hostData }) => {
   return (
     <div className="contact-host">
       <h1>Contact Host</h1>
+
+      
       <form action={`mailto:${email}`}>
         <button>Contact</button>
       </form>

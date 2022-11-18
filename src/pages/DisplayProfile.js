@@ -35,15 +35,17 @@ const DisplayProfile = ({ user }) => {
   }
 
   return profile ? (
-    <>
-      <div>
+    <div className="display-profile">
+      <div className="profile-link">
+        <a>
         <Image src={profile.profilePic} />
         <h2>
           {profile.name} {profile.lastName}
         </h2>
+        </a>
       </div>
 
-      <div>
+      <div className="display-profile-wrapper">
         {isOwnerOfPage && <Link to="/my-profile/edit-profile">Edit</Link>}
         <h5>About me:</h5>
         <p>{profile.about}</p>
@@ -79,7 +81,7 @@ const DisplayProfile = ({ user }) => {
           setReviews={setReviews}
         />
       </section>
-    </>
+    </div>
   ) : (
     <p>Loading...</p>
   );
