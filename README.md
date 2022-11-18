@@ -116,6 +116,8 @@ The features would be built in a self-contained environment to later bring them 
 
 ### Was the project a success?
 
+We are quite happy with what we produced.
+
 ## Software Development Lifecycle stages 
 
 ### Planning 
@@ -126,9 +128,7 @@ The features would be built in a self-contained environment to later bring them 
 
 #### Did these roles help your team work effectively?
 
-
 #### Outline how teams work effectively to produce software and how to contribute appropriately (K6) 
-
 
 #### Compare and contrast the requirements of a software development team, and how they would ensure that each member (including themselves) were able to make a contribution (K6)
 
