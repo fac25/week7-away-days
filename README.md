@@ -19,9 +19,9 @@ Reach out to us for access to the dev environment.
 ## User stories: 
 
 ## Core
-- [ ] [As a sports enthusiast I would like to see sporting events around the world][i1]
-- [ ] [As a host I would like to share/host new experiences so that I can meet new people][i7]
-- [ ] As a curious person I would like to view detailed information about the hosts so that I can feel safe
+- [X] [As a sports enthusiast I would like to see sporting events around the world][i1]
+- [X] [As a host I would like to share/host new experiences so that I can meet new people][i7]
+- [X] As a curious person I would like to view detailed information about the hosts so that I can feel safe
 - [ ] As a concerned host I would like to know more about the person that's potentially staying with me
 - [ ] As a concerned user I would like to see what other people have to say about the host I will stay with 
 
