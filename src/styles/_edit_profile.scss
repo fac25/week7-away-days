@@ -1,3 +1,4 @@
+@use "variables";
 .edit-profile {
   border: 1px solid;
   border-radius: 10px;
@@ -19,8 +20,11 @@
     input,
     button,
     textarea {
-      color: white;
+      color: variables.$secondary-text;
       margin-bottom: 1vh;
+    }
+    input[type="file"] {
+      color: variables.$primary-text;
     }
     button {
       width: 40%;

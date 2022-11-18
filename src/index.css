@@ -356,8 +356,11 @@ nav ul .left li :hover, nav ul .right li :hover, nav ul .user-logged-in li :hove
 .edit-profile .edit-profile-wrapper input,
 .edit-profile .edit-profile-wrapper button,
 .edit-profile .edit-profile-wrapper textarea {
-  color: white;
+  color: black;
   margin-bottom: 1vh;
+}
+.edit-profile .edit-profile-wrapper input[type=file] {
+  color: white;
 }
 .edit-profile .edit-profile-wrapper button {
   width: 40%;
