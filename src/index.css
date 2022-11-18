@@ -340,3 +340,37 @@ footer {
   padding: 30px 0;
   text-align: center;
 }
+
+.edit-profile {
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 2vh 0;
+}
+.edit-profile h1 {
+  text-align: center;
+  padding: 16px;
+}
+.edit-profile .edit-profile-wrapper {
+  width: 60%;
+  margin: 0 auto;
+}
+.edit-profile .edit-profile-wrapper label,
+.edit-profile .edit-profile-wrapper input,
+.edit-profile .edit-profile-wrapper textarea {
+  width: 100%;
+}
+.edit-profile .edit-profile-wrapper input,
+.edit-profile .edit-profile-wrapper button,
+.edit-profile .edit-profile-wrapper textarea {
+  color: white;
+  margin-bottom: 1vh;
+}
+.edit-profile .edit-profile-wrapper button {
+  width: 40%;
+  margin-left: 30%;
+}
+
+.display-profile {
+  max-width: 800px;
+  margin: 0 auto;
+}

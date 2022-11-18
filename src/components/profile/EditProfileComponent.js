@@ -51,80 +51,82 @@ export default function EditProfileComponent({ user }) {
   }
 
   return (
-    <div>
+    <div className="edit-profile">
       <h1>Edit Profile</h1>
 
-      <UploadImg updateFileName={setProfileImg} />
+      <div className="edit-profile-wrapper">
+        <UploadImg updateFileName={setProfileImg} />
 
-      <label htmlFor="name">name:</label>
-      <input
-        type="text"
-        id="name"
-        onChange={handleChange}
-        defaultValue={values.name}
-      />
+        <label htmlFor="name">name:</label>
+        <input
+          type="text"
+          id="name"
+          onChange={handleChange}
+          defaultValue={values.name}
+        />
 
-      <label htmlFor="lastName">last Name:</label>
-      <input
-        type="text"
-        id="lastName"
-        onChange={handleChange}
-        defaultValue={values.lastName}
-      />
+        <label htmlFor="lastName">last Name:</label>
+        <input
+          type="text"
+          id="lastName"
+          onChange={handleChange}
+          defaultValue={values.lastName}
+        />
 
-      <label htmlFor="about">About Me:</label>
-      <textarea
-        type="text"
-        id="about"
-        onChange={handleChange}
-        defaultValue={values.about}
-      />
+        <label htmlFor="about">About Me:</label>
+        <textarea
+          type="text"
+          id="about"
+          onChange={handleChange}
+          defaultValue={values.about}
+        />
 
-      <label htmlFor="favouriteSports">Favourite sports:</label>
-      <textarea
-        type="text"
-        id="favouriteSports"
-        onChange={handleChange}
-        defaultValue={values.favSports}
-      />
+        <label htmlFor="favouriteSports">Favourite sports:</label>
+        <textarea
+          type="text"
+          id="favouriteSports"
+          onChange={handleChange}
+          defaultValue={values.favSports}
+        />
 
-      <label htmlFor="why on away days">Why I'm on Away Days:</label>
-      <textarea
-        type="text"
-        id="why"
-        onChange={handleChange}
-        defaultValue={values.whyOnAwayDays}
-      />
+        <label htmlFor="why on away days">Why I'm on Away Days:</label>
+        <textarea
+          type="text"
+          id="why"
+          onChange={handleChange}
+          defaultValue={values.whyOnAwayDays}
+        />
 
-      <label htmlFor="one amazing sporting event">
-        One amazing sporting event I've been to:
-      </label>
-      <textarea
-        type="text"
-        id="oneSportingEvent"
-        onChange={handleChange}
-        defaultValue={values.oneAmazingSportEvent}
-      />
+        <label htmlFor="one amazing sporting event">
+          One amazing sporting event I've been to:
+        </label>
+        <textarea
+          type="text"
+          id="oneSportingEvent"
+          onChange={handleChange}
+          defaultValue={values.oneAmazingSportEvent}
+        />
 
-      <label htmlFor="past events">Events I've been to:</label>
-      <textarea
-        type="text"
-        id="pastEvents"
-        onChange={handleChange}
-        defaultValue={values.pastEvents}
-      />
+        <label htmlFor="past events">Events I've been to:</label>
+        <textarea
+          type="text"
+          id="pastEvents"
+          onChange={handleChange}
+          defaultValue={values.pastEvents}
+        />
 
-      <label htmlFor="interests">Interests:</label>
-      <textarea
-        type="text"
-        id="interests"
-        onChange={handleChange}
-        defaultValue={values.interests}
-      />
+        <label htmlFor="interests">Interests:</label>
+        <textarea
+          type="text"
+          id="interests"
+          onChange={handleChange}
+          defaultValue={values.interests}
+        />
 
-      <Link to="/my-profile" onClick={updateProfile}>
-        Save
-      </Link>
+        <Link to="/my-profile" onClick={updateProfile}>
+          <button>Save</button>
+        </Link>
+      </div>
     </div>
   );
 }

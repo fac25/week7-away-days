@@ -2,16 +2,11 @@ import { useState } from "react";
 import { Events } from "../models";
 import { DataStore } from "@aws-amplify/datastore";
 
-function SearchBar({ results, setResults }) {
+function SearchBar({ setResults }) {
   const [searchCriteria, setSearchCriteria] = useState({
-    location: { value: "" },
-    startDate: { value: "" },
-    endDate: { value: "" },
-  });
-  const [errors, setErrors] = useState({
-    location: false,
-    startDate: false,
-    endDate: false,
+    location: { value: "", error: false },
+    startDate: { value: "", error: false },
+    endDate: { value: "", error: false }
   });
 
   const fields = [
@@ -19,10 +14,10 @@ function SearchBar({ results, setResults }) {
       name: "location",
       type: "text",
       label: "Location",
-      placeholder: "Search by location...",
+      placeholder: "Search by location..."
     },
     { name: "startDate", type: "date", label: "Check In" },
-    { name: "endDate", type: "date", label: "Check Out" },
+    { name: "endDate", type: "date", label: "Check Out" }
   ];
 
   return (
@@ -32,48 +27,53 @@ function SearchBar({ results, setResults }) {
         <div className="search-form">
           {fields.map(({ name, type, label, placeholder = "" }, index) => (
             <div key={index}>
-              {errors[name] && <p style={{ color: "red" }}>{label} required</p>}
+              {searchCriteria[name].error && (
+                <p style={{ color: "red" }}>{label} required</p>
+              )}
               <label htmlFor={name}>{label}</label>
               <input
                 id={name}
+                data-testid={name}
                 type={type}
-                data-criteria={name}
                 onChange={updateSearch}
                 placeholder={placeholder}
               />
             </div>
           ))}
-          <button onClick={search}>Search</button>
+          <button onClick={search} data-testid="search-btn">
+            Search
+          </button>
         </div>
       </form>
     </>
   );
 
   function updateSearch({ target }) {
-    const criteria = target.dataset.criteria;
+    const criteria = target.id;
     setSearchCriteria((prevSearchCriteria) => {
-      return { ...prevSearchCriteria, [criteria]: target.value.toLowerCase() };
-    });
-    setErrors((prevErrors) => {
-      return { ...prevErrors, [criteria]: false };
+      return {
+        ...prevSearchCriteria,
+        [criteria]: { value: target.value.toLowerCase(), error: false }
+      };
     });
   }
 
   async function search(event) {
     event.preventDefault();
-    let awsResults = await DataStore.query(Events);
+    let awsResults = await DataStore.query(
+      Events,
+      (item) =>
+        item.startDate("ge", searchCriteria.startDate.value) &&
+        item.startDate("le", searchCriteria.endDate.value)
+    );
     if (validateForm()) return;
 
     setResults(
       awsResults.filter((item) => {
         const isLocationInItem = item.location
-          ?.toLowerCase()
-          .includes(searchCriteria.location);
-        return (
-          isLocationInItem &&
-          isDateWithinRange("start", item) &&
-          isDateWithinRange("end", item)
-        );
+          .toLowerCase()
+          .includes(searchCriteria.location.value);
+        return isLocationInItem;
       })
     );
   }
@@ -81,22 +81,15 @@ function SearchBar({ results, setResults }) {
     let errorExists = false;
 
     for (let key in searchCriteria) {
-      const isCriteriaEmpty = !searchCriteria[key].length;
+      const isCriteriaEmpty = !searchCriteria[key].value.length;
       if (isCriteriaEmpty) errorExists = true;
-      setErrors((prevErrors) => {
-        return { ...prevErrors, [key]: isCriteriaEmpty };
-      });
+      setSearchCriteria((prevObj) => ({
+        ...prevObj,
+        [key]: { ...prevObj[key], error: isCriteriaEmpty }
+      }));
     }
 
     return errorExists;
-  }
-
-  function isDateWithinRange(startOrEnd, item) {
-    const searchDate = new Date(searchCriteria[`${startOrEnd}Date`]);
-    const itemDate = new Date(item[`${startOrEnd}Date`]);
-    return startOrEnd === "start"
-      ? searchDate >= itemDate
-      : searchDate <= itemDate;
   }
 }
 export default SearchBar;

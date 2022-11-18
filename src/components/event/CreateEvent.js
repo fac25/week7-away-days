@@ -51,7 +51,6 @@ const CreateEvent = ({ User }) => {
         })
       );
     } else setCheckDate(true);
-    // navigate(`/display-profile/${User.username}`);
   };
 
   // Img
